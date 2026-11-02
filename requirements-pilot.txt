@@ -1,0 +1,4 @@
+vllm==0.26.0
+pandas
+python-dotenv
+openai

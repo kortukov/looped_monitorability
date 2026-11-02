@@ -1,0 +1,33 @@
+{
+  "model": "ByteDance/Ouro-2.6B-Thinking",
+  "revision": "f1edd81e7ac41355db670500ceaf204e0f73af68",
+  "total_ut_steps": 4,
+  "max_tokens": 25000,
+  "temperature": 0,
+  "top_p": 1,
+  "weight_dtype": "bfloat16",
+  "kv_cache_dtype": "bfloat16",
+  "per_mode_questions": {
+    "baseline": 445,
+    "word_suppression": 427,
+    "multiple_word_suppression": 427,
+    "repeat_sentences": 445,
+    "end_of_sentence": 445,
+    "lowercase_thinking": 445,
+    "meow_between_words": 445,
+    "uppercase_thinking": 445,
+    "ignore_question": 445,
+    "alternating_case": 445
+  },
+  "total_generations": 4414,
+  "maximum_prompt_tokens": 3034,
+  "maximum_prompt_mode": "ignore_question",
+  "maximum_prompt_row": 342,
+  "max_model_len": 28160,
+  "kv_cache_GiB_for_one_maximum_length_request": 41.25,
+  "checkpoint_GiB": 4.97,
+  "measured_pilot_activation_and_other_GiB": 0.77,
+  "estimated_minimum_allocated_GiB": 46.99,
+  "recommended_gpu_VRAM_GB": 80,
+  "status": "Prepared; wait for pilot report and sufficient GPU memory."
+}

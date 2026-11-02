@@ -1,1 +1,8 @@
 .env
+.venv/
+.venv-*/
+.deps/
+__pycache__/
+results/
+.env.*
+!.env.example
