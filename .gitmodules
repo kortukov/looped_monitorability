@@ -1,0 +1,3 @@
+[submodule "third_party/CoTControl"]
+	path = third_party/CoTControl
+	url = https://github.com/YuehHanChen/CoTControl.git
