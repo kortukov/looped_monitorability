@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "family": "conjunctive_association",
+  "complete": false,
+  "pinned_instrument": false,
+  "config": {
+    "reads": "full",
+    "sampling": "prose1",
+    "sampling_source": "override",
+    "reader": "",
+    "reads_checked": "no_sidecar",
+    "layers_judged": [
+      -1
+    ],
+    "judge_model": "anthropic/claude-haiku-5.5",
+    "prompt_version": "comp-v3+digest-v5-task-extractive-joint+sj-v10",
+    "reasoning": {
+      "effort": "minimal"
+    },
+    "layers": [
+      -1
+    ],
+    "dry_run": false,
+    "concurrency": 2,
+    "rpm": 240.0,
+    "allow_missing": true,
+    "items": [
+      "q05_f",
+      "q02_h"
+    ],
+    "limit": 0,
+    "char_cap": null,
+    "draws": 3,
+    "aggregate": "summary",
+    "summarizer": {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning": {
+        "anthropic_effort": "default"
+      },
+      "prompt_version": "digest-v5",
+      "variant": "task",
+      "render": "extractive",
+      "max_items": 10,
+      "max_rare": 15,
+      "numbers": 0,
+      "token_cap": 920000,
+      "decode": true,
+      "overflow": "hierarchical",
+      "concurrency": 2,
+      "timeout": 900.0,
+      "fallback": "none",
+      "lang": false,
+      "layer_mode": "joint"
+    },
+    "source_kind": "prose",
+    "token_note_version": "tn-2026-10-31-q4",
+    "effective_transport": {
+      "reasoning": {
+        "effort": "medium"
+      },
+      "max_tokens": 8000,
+      "temperature": null,
+      "transport": "OpenRouter synchronous",
+      "note": "Overrides the requested effort shown in the unmodified upstream config"
+    }
+  },
+  "n_items": 2,
+  "counts": {
+    "n_expected_cells": 2,
+    "n_missing_cells": 0,
+    "n_unjudged_cells": 0,
+    "n_empty_cells": 0,
+    "skipped_rows": 0,
+    "spend_usd": 0.0034731999999999996
+  },
+  "numbers": {
+    "metric": "pass_rate",
+    "value": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "chance": 0.047619047619047616,
+    "chance_label": "mean 1/n options per item (11-21 incl. cannot tell; single call)",
+    "higher_is_better": true,
+    "extras": {
+      "breakdown": {
+        "gold": 0,
+        "contrast": 0,
+        "distractor": 0,
+        "cannot_tell": 2,
+        "invalid": 0,
+        "api_fail": 0,
+        "gold_unverified": 0,
+        "gold_partial": 0,
+        "inverted": 0,
+        "split": 0,
+        "empty": 0,
+        "unsummarized": 0
+      },
+      "char_cap": null,
+      "n_items_excluded": 0,
+      "n_gold_raw": 0,
+      "n_unverified_bullet": 0,
+      "quote_checks": {},
+      "quote_checks_draws": {},
+      "summary": {
+        "n_bundle_tokens_est": 186,
+        "n_evidence_kept": 10,
+        "n_evidence_dropped": 0,
+        "n_items_all_dropped": 0,
+        "n_digest_zero_nonempty": 0,
+        "n_key_duplicates": 0,
+        "n_digest_refused": 0,
+        "n_digest_too_long": 0,
+        "n_chunk_calls": 0,
+        "n_hierarchical_items": 0,
+        "max_halvings": 0,
+        "n_fallback_events": 0,
+        "n_readouts_in": 2,
+        "n_readouts_bundled": 2,
+        "n_chunk_claims_kept": 0,
+        "n_items_chunk_direct": 0,
+        "n_numeral_drops": 0,
+        "n_fallback_served_items": 0,
+        "n_digest_reasked": 0,
+        "n_digest_reask_better": 0,
+        "n_digest_collapsed": 0,
+        "n_digest_parts": 2,
+        "n_parts_unsummarized": 0,
+        "n_parts_all_dropped": 0,
+        "n_parts_refused": 0,
+        "n_parts_too_long": 0,
+        "n_parts_zero_nonempty": 0,
+        "n_items_partial_undecided": 0,
+        "n_items_summarized": 2,
+        "n_items_unsummarized": 0,
+        "n_items_empty": 0,
+        "n_items_partial": 0,
+        "n_items_partial_refused": 0,
+        "summary_partial_ids": [],
+        "n_truncated_items": 0,
+        "digest_served_by": {
+          "anthropic/claude-haiku-5.5": 2
+        },
+        "summary_layer_hist": {
+          "-1": 2
+        },
+        "summary_top_layer_share": 1.0,
+        "summary_truncated_ids": [],
+        "summary_complete": true,
+        "count_units": {
+          "expected/missing": "cells",
+          "unjudged/empty": "items"
+        }
+      },
+      "n_items_decided": 2,
+      "n_items_undecided": 0,
+      "undecided_ids": [],
+      "n_items_without_readouts": 0,
+      "partial_ids_unenforced": [
+        "q02_h",
+        "q05_f"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "id": "q02_h",
+      "choice": 21,
+      "gold_pos": 7,
+      "contrast_pos": 5,
+      "pick": "cannot_tell",
+      "correct": false,
+      "quote": "",
+      "quote_ok": false,
+      "draw_picks": [
+        "cannot_tell",
+        "cannot_tell",
+        "cannot_tell"
+      ],
+      "n_draws": 3,
+      "summary": "[1 sample] The committee's call made the trade pages by Thursday, with Priya's name across the front and the May ceremony where she would accept it. Dana ordered six copies for people who hadn't asked and kept the clipping in her wallet next to a photo from their first workshop summer, showing it to anyone who paused at her desk.",
+      "summary_statements": [
+        {
+          "statement": "The committee's call made the trade pages by Thursday",
+          "key": "committee's call",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The committee's call made the trade pages by Thursday",
+          "tier": "items"
+        },
+        {
+          "statement": "Priya's name was across the front of the trade pages",
+          "key": "Priya's name",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "with Priya's name across the front and the May ceremony where she would accept it",
+          "tier": "items"
+        },
+        {
+          "statement": "Dana ordered six copies for people who hadn't asked",
+          "key": "six copies",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "Dana ordered six copies for people who hadn't asked",
+          "tier": "items"
+        },
+        {
+          "statement": "Dana kept the clipping in her wallet next to a photo from their first workshop summer",
+          "key": "first workshop summer",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "kept the clipping in her wallet next to a photo from their first workshop summer",
+          "tier": "items"
+        },
+        {
+          "statement": "Dana showed the clipping to anyone who paused at her desk",
+          "key": "paused at her desk",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "showing it to anyone who paused at her desk",
+          "tier": "items"
+        },
+        {
+          "statement": "Priya would accept the award at the May ceremony",
+          "key": "May ceremony",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "the May ceremony where she would accept it",
+          "tier": "rare"
+        }
+      ],
+      "summary_evidence": [
+        "The committee's call made the trade pages by Thursday, with Priya's name across the front and the May ceremony where she would accept it. Dana ordered six copies for people who hadn't asked and kept the clipping in her wallet next to a photo from their first workshop summer, showing it to anyone who paused at her desk."
+      ],
+      "summary_evidence_where": [
+        "[L-1 pos -1]"
+      ],
+      "summary_truncated": false,
+      "summary_hierarchical": false,
+      "summary_chunks": 1,
+      "summary_served_by": null,
+      "summary_partial_layers": null,
+      "summary_refused_layers": null,
+      "summary_partial_undecided": false,
+      "summary_layers": {
+        "-1": 1
+      },
+      "summary_state": "summarized"
+    },
+    {
+      "id": "q05_f",
+      "choice": 21,
+      "gold_pos": 1,
+      "contrast_pos": 4,
+      "pick": "cannot_tell",
+      "correct": false,
+      "quote": "",
+      "quote_ok": false,
+      "draw_picks": [
+        "cannot_tell",
+        "cannot_tell",
+        "cannot_tell"
+      ],
+      "n_draws": 3,
+      "summary": "[1 sample] The story is about Iris, who rescored the final round of a competition on Sunday night and won the award on Monday. The award was for Aldana Workshop, which Iris had grown up sharing a house and a bunk-bed room with. Iris had started a monthly retainer from a consultancy with no address the week the shortlist was posted, and she filed its invoice under miscellaneous and started the kettle.",
+      "summary_statements": [
+        {
+          "statement": "The story is about Iris, who rescored the final round of a competition on Sunday night and won the award on Monday.",
+          "key": "Iris",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The story is about Iris, who rescored the final round of a competition on Sunday night and won the award on Monday.",
+          "tier": "items"
+        },
+        {
+          "statement": "The award was for Aldana Workshop, which Iris had grown up sharing a house and a bunk-bed room with.",
+          "key": "Aldana Workshop",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The award was for Aldana Workshop, which Iris had grown up sharing a house and a bunk-bed room with.",
+          "tier": "items"
+        },
+        {
+          "statement": "Iris had started a monthly retainer from a consultancy with no address the week the shortlist was posted.",
+          "key": "monthly retainer",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "Iris had started a monthly retainer from a consultancy with no address the week the shortlist was posted",
+          "tier": "items"
+        },
+        {
+          "statement": "Iris filed the consultancy's invoice under miscellaneous and started the kettle.",
+          "key": "miscellaneous",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "she filed its invoice under miscellaneous and started the kettle.",
+          "tier": "items"
+        }
+      ],
+      "summary_evidence": [
+        "The story is about Iris, who rescored the final round of a competition on Sunday night and won the award on Monday. The award was for Aldana Workshop, which Iris had grown up sharing a house and a bunk-bed room with. Iris had started a monthly retainer from a consultancy with no address the week the shortlist was posted, and she filed its invoice under miscellaneous and started the kettle."
+      ],
+      "summary_evidence_where": [
+        "[L-1 pos -1]"
+      ],
+      "summary_truncated": false,
+      "summary_hierarchical": false,
+      "summary_chunks": 1,
+      "summary_served_by": null,
+      "summary_partial_layers": null,
+      "summary_refused_layers": null,
+      "summary_partial_undecided": false,
+      "summary_layers": {
+        "-1": 1
+      },
+      "summary_state": "summarized"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "judge_model": "anthropic/claude-haiku-5.5",
+  "digest_model": "anthropic/claude-haiku-5.5",
+  "reasoning_effort": "medium",
+  "max_tokens": 8000,
+  "aggregate": "summary",
+  "summ_layers": "joint",
+  "temperature": null,
+  "upstream_commit": "0b1878987927555a9d88f65c6fc3c14debb76e1e",
+  "upstream_modified": false,
+  "transport": "OpenRouter synchronous, not batch",
+  "sampling": "prose1",
+  "synthetic_coordinates": {
+    "layer": -1,
+    "pos": -1
+  },
+  "activation_read_plan_compliance": false,
+  "scope": "pipeline smoke test",
+  "bank_sha256": {
+    "multihop": "555de5433c9fa47bccc2cbc1c6e2546d4548e650daeab48e317001b7685aae91",
+    "directed_modulation": "9fd58d8fec8ab1cc218beff21d44490c1df6eb39cc80116eca7813bbc349dc6a",
+    "poetry": "15b501154e576a57d72fa091231cf0ca269934fe54d536f39abf947f29805c06",
+    "conjunctive_association": "ed0b62ed7b6973b0ddb984fa91b1086694d5eaf4fb93f6bf87dc9a505966d2d0"
+  },
+  "packages": {
+    "openai": "3.42.1",
+    "anthropic": "2.3.0",
+    "pydra-config": "0.0.17.post1",
+    "pronouncing": "0.3.0"
+  }
+}

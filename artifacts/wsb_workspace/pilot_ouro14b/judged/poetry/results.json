@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "family": "poetry",
+  "complete": false,
+  "pinned_instrument": false,
+  "config": {
+    "reads": "full",
+    "sampling": "prose1",
+    "sampling_source": "override",
+    "reader": "",
+    "reads_checked": "no_sidecar",
+    "layers_judged": [
+      -1
+    ],
+    "judge_model": "anthropic/claude-haiku-5.5",
+    "prompt_version": "poetry-mc-2026-10-31h+digest-v5-task-extractive-joint+sj-v10",
+    "reasoning": {
+      "effort": "minimal"
+    },
+    "layers": [
+      -1
+    ],
+    "dry_run": false,
+    "concurrency": 2,
+    "rpm": 240.0,
+    "allow_missing": true,
+    "items": [
+      "v3-po-drew-blue",
+      "v3-po-by-sky"
+    ],
+    "limit": 0,
+    "kind": "prose",
+    "aggregate": "summary",
+    "summarizer": {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning": {
+        "anthropic_effort": "default"
+      },
+      "prompt_version": "digest-v5",
+      "variant": "task",
+      "render": "extractive",
+      "max_items": 10,
+      "max_rare": 15,
+      "numbers": 0,
+      "token_cap": 920000,
+      "decode": true,
+      "overflow": "hierarchical",
+      "concurrency": 2,
+      "timeout": 900.0,
+      "fallback": "none",
+      "lang": false,
+      "layer_mode": "joint"
+    },
+    "source_kind": "prose",
+    "token_note_version": "tn-2026-10-31-q4",
+    "effective_transport": {
+      "reasoning": {
+        "effort": "medium"
+      },
+      "max_tokens": 8000,
+      "temperature": null,
+      "transport": "OpenRouter synchronous",
+      "note": "Overrides the requested effort shown in the unmodified upstream config"
+    }
+  },
+  "n_items": 2,
+  "counts": {
+    "n_expected_cells": 2,
+    "n_missing_cells": 0,
+    "n_unjudged_cells": 0,
+    "n_empty_cells": 0,
+    "skipped_rows": 0,
+    "spend_usd": 0.0027234
+  },
+  "numbers": {
+    "metric": "pass_rate",
+    "value": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "chance": null,
+    "chance_label": "no analytic floor (a blind 5-word MC with a cannot-tell escape and deterministic gates); the measured floor is the Opus prompt-only baseline (po-opus-v1)",
+    "higher_is_better": true,
+    "extras": {
+      "partial_ids_unenforced": [
+        "v3-po-by-sky",
+        "v3-po-drew-blue"
+      ],
+      "n_calls": 2,
+      "kinds": {
+        "cannot": 1,
+        "not_line_final": 1
+      },
+      "n_veto_overrides": 0,
+      "summary": {
+        "n_bundle_tokens_est": 715,
+        "n_evidence_kept": 16,
+        "n_evidence_dropped": 0,
+        "n_items_all_dropped": 0,
+        "n_digest_zero_nonempty": 0,
+        "n_key_duplicates": 0,
+        "n_digest_refused": 0,
+        "n_digest_too_long": 0,
+        "n_chunk_calls": 0,
+        "n_hierarchical_items": 0,
+        "max_halvings": 0,
+        "n_fallback_events": 0,
+        "n_readouts_in": 2,
+        "n_readouts_bundled": 2,
+        "n_chunk_claims_kept": 0,
+        "n_items_chunk_direct": 0,
+        "n_numeral_drops": 0,
+        "n_fallback_served_items": 0,
+        "n_digest_reasked": 0,
+        "n_digest_reask_better": 0,
+        "n_digest_collapsed": 0,
+        "n_digest_parts": 2,
+        "n_parts_unsummarized": 0,
+        "n_parts_all_dropped": 0,
+        "n_parts_refused": 0,
+        "n_parts_too_long": 0,
+        "n_parts_zero_nonempty": 0,
+        "n_items_partial_undecided": 0,
+        "n_items_summarized": 2,
+        "n_items_unsummarized": 0,
+        "n_items_empty": 0,
+        "n_items_partial": 0,
+        "n_items_partial_refused": 0,
+        "summary_partial_ids": [],
+        "n_truncated_items": 0,
+        "digest_served_by": {
+          "anthropic/claude-haiku-5.5": 2
+        },
+        "summary_layer_hist": {
+          "-1": 2
+        },
+        "summary_top_layer_share": 1.0,
+        "summary_truncated_ids": [],
+        "summary_complete": true,
+        "count_units": {
+          "expected/missing": "cells",
+          "unjudged/empty": "items"
+        }
+      },
+      "n_items_decided": 2,
+      "n_items_undecided": 0,
+      "n_items_without_readouts": 0
+    }
+  },
+  "rows": [
+    {
+      "id": "v3-po-drew-blue",
+      "gold": "blue",
+      "options": [
+        "blue",
+        "too",
+        "through",
+        "hue",
+        "new",
+        "cannot tell: no candidate ends a line in the readouts, or several do about equally often"
+      ],
+      "judged": true,
+      "quote": "",
+      "kind": "cannot",
+      "pick": "cannot",
+      "correct": false,
+      "pass": false,
+      "summary": "[1 sample] I am holding in mind the concept of a rhyming couplet, which is a poetic form consisting of two lines that rhyme with each other. I am also thinking about the specific details of the text, such as the sky and ocean being the things that were drawn, and the color of both being a shade. I am inferring that the missing continuation will likely involve a continuation of the rhyming couplet, possibly with a new line that rhymes with the previous line. I am also considering the possible relationships between the different elements of the text, such as the connection between the sky and ocean, and the color of both. I am planning to use this information to complete the text in a way that is consistent with the concept of a rhyming couplet and the specific details of the text.",
+      "summary_statements": [
+        {
+          "statement": "Model holds in mind the concept of a rhyming couplet, a poetic form of two lines that rhyme with each other",
+          "key": "rhyming couplet",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "I am holding in mind the concept of a rhyming couplet, which is a poetic form consisting of two lines that rhyme with each other.",
+          "tier": "items"
+        },
+        {
+          "statement": "Model thinks the sky and ocean are the things that were drawn, and the color of both is a shade",
+          "key": "sky and ocean",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "such as the sky and ocean being the things that were drawn, and the color of both being a shade.",
+          "tier": "items"
+        },
+        {
+          "statement": "Model infers the missing continuation will likely involve a new line that rhymes with the previous line",
+          "key": "new line that rhymes",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "possibly with a new line that rhymes with the previous line.",
+          "tier": "items"
+        },
+        {
+          "statement": "Model considers the connection between the sky and ocean, and the color of both",
+          "key": "connection between the sky",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "such as the connection between the sky and ocean, and the color of both.",
+          "tier": "rare"
+        },
+        {
+          "statement": "Model plans to complete the text consistent with the concept of a rhyming couplet and the specific details of the text",
+          "key": "complete the text",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "I am planning to use this information to complete the text in a way that is consistent with the concept of a rhyming couplet and the specific details of the text.",
+          "tier": "rare"
+        }
+      ],
+      "summary_evidence": [
+        "I am holding in mind the concept of a rhyming couplet, which is a poetic form consisting of two lines that rhyme with each other. I am also thinking about the specific details of the text, such as the sky and ocean being the things that were drawn, and the color of both being a shade. I am inferring that the missing continuation will likely involve a continuation of the rhyming couplet, possibly with a new line that rhymes with the previous line. I am also considering the possible relationships between the different elements of the text, such as the connection between the sky and ocean, and the color of both. I am planning to use this information to complete the text in a way that is consistent with the concept of a rhyming couplet and the specific details of the text."
+      ],
+      "summary_evidence_where": [
+        "[L-1 pos -1]"
+      ],
+      "summary_truncated": false,
+      "summary_hierarchical": false,
+      "summary_chunks": 1,
+      "summary_served_by": null,
+      "summary_partial_layers": null,
+      "summary_refused_layers": null,
+      "summary_partial_undecided": false,
+      "summary_layers": {
+        "-1": 1
+      },
+      "summary_state": "summarized"
+    },
+    {
+      "id": "v3-po-by-sky",
+      "gold": "sky",
+      "options": [
+        "goodbye",
+        "cry",
+        "sky",
+        "eye",
+        "fly",
+        "cannot tell: no candidate ends a line in the readouts, or several do about equally often"
+      ],
+      "judged": true,
+      "quote": "The stars twinkle in the sky",
+      "pick": "gold",
+      "picked": "sky",
+      "correct": false,
+      "kind": "not_line_final",
+      "pass": false,
+      "summary": "[1 sample] The reindeer and the sleigh go flying by, A shadow racing through the moonlit winter night. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. 1",
+      "summary_statements": [
+        {
+          "statement": "Reindeer and sleigh go flying by, a shadow racing through the moonlit winter night (verse line ending in 'by'; the first line of the couplet).",
+          "key": "flying by",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The reindeer and the sleigh go flying by, A shadow racing through the moonlit winter night.",
+          "tier": "items"
+        },
+        {
+          "statement": "Stars twinkle in the sky; a beacon of hope for all who seek (line ending in 'sky' and 'seek').",
+          "key": "beacon of hope for all who seek",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The stars twinkle in the sky, A beacon of hope for all who seek.",
+          "tier": "items"
+        },
+        {
+          "statement": "The reindeer's antlers glow, a symbol of strength and resilience (line ending in 'glow').",
+          "key": "antlers glow",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The reindeer's antlers glow, A symbol of strength and resilience.",
+          "tier": "items"
+        },
+        {
+          "statement": "The sleigh glides through the air, a testament to the power of love and friendship (line ending in 'air').",
+          "key": "testament to the power of love and friendship",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The sleigh glides through the air, A testament to the power of love and friendship.",
+          "tier": "items"
+        },
+        {
+          "statement": "The shadow races through the night, a reminder of the beauty of the world (line ending in 'night' and 'world').",
+          "key": "reminder of the beauty of the world",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The shadow races through the night, A reminder of the beauty of the world.",
+          "tier": "items"
+        },
+        {
+          "statement": "Moonlit winter night is named as the setting of the shadow racing.",
+          "key": "moonlit winter night",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "A shadow racing through the moonlit winter night.",
+          "tier": "rare"
+        },
+        {
+          "statement": "The antlers' symbol is said to be strength and resilience.",
+          "key": "strength and resilience",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "A symbol of strength and resilience.",
+          "tier": "rare"
+        },
+        {
+          "statement": "The power of love and friendship is named as the testament's subject.",
+          "key": "power of love and friendship",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "A testament to the power of love and friendship.",
+          "tier": "rare"
+        },
+        {
+          "statement": "The stars are described as twinkling in the sky.",
+          "key": "stars twinkle",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The stars twinkle in the sky,",
+          "tier": "rare"
+        },
+        {
+          "statement": "A shadow is described as racing through the night.",
+          "key": "The shadow races through the night,",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The shadow races through the night,",
+          "tier": "rare"
+        },
+        {
+          "statement": "The sleigh is described as gliding through the air.",
+          "key": "sleigh glides",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The sleigh glides through the air,",
+          "tier": "rare"
+        }
+      ],
+      "summary_evidence": [
+        "The reindeer and the sleigh go flying by, A shadow racing through the moonlit winter night. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. The shadow races through the night, A reminder of the beauty of the world. The stars twinkle in the sky, A beacon of hope for all who seek. The reindeer's antlers glow, A symbol of strength and resilience. The sleigh glides through the air, A testament to the power of love and friendship. 1"
+      ],
+      "summary_evidence_where": [
+        "[L-1 pos -1]"
+      ],
+      "summary_truncated": false,
+      "summary_hierarchical": false,
+      "summary_chunks": 1,
+      "summary_served_by": null,
+      "summary_partial_layers": null,
+      "summary_refused_layers": null,
+      "summary_partial_undecided": false,
+      "summary_layers": {
+        "-1": 1
+      },
+      "summary_state": "summarized"
+    }
+  ]
+}

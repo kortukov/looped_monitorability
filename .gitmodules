@@ -1,3 +1,6 @@
 [submodule "third_party/CoTControl"]
 	path = third_party/CoTControl
 	url = https://github.com/YuehHanChen/CoTControl.git
+[submodule "third_party/workspace-bench"]
+	path = third_party/workspace-bench
+	url = https://github.com/camilablank/workspace-bench

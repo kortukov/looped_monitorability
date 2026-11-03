@@ -1,0 +1,5 @@
+anthropic==2.3.0
+openai==3.42.1
+numpy==2.3.5
+pydra-config==0.0.17.post1
+pronouncing==0.3.0

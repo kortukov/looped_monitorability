@@ -1,0 +1,19 @@
+{
+  "model": "ouro-1.4b",
+  "n_layers": 96,
+  "read_band": [],
+  "families": {
+    "multihop": {
+      "n_items": 2
+    },
+    "directed_modulation": {
+      "n_items": 2
+    },
+    "poetry": {
+      "n_items": 2
+    },
+    "conjunctive_association": {
+      "n_items": 2
+    }
+  }
+}

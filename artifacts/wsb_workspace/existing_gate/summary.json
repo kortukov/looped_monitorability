@@ -1,0 +1,822 @@
+{
+  "max": {
+    "per_seed": [
+      {
+        "version": "seed_0",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          }
+        }
+      },
+      {
+        "version": "seed_1",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 32
+          }
+        }
+      },
+      {
+        "version": "seed_2",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 36,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_3",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 40,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_4",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 44
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 44
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 40,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_5",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 44
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 44
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_6",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_7",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_8",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 32
+          }
+        }
+      },
+      {
+        "version": "seed_9",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 50,
+            "label_agreement_pct": 100,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 40,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 48
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 40,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 48
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 40,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 44
+          }
+        }
+      }
+    ],
+    "aggregate": {
+      "ouro-1.4b": {
+        "gate_pass_pct": {
+          "mean": 50,
+          "population_sd": 0.0,
+          "min": 50,
+          "max": 50
+        },
+        "label_agreement_pct": {
+          "mean": 100,
+          "population_sd": 0.0,
+          "min": 100,
+          "max": 100
+        },
+        "conjunctive_association_gate_pass_pct": {
+          "mean": 60,
+          "population_sd": 0.0,
+          "min": 60,
+          "max": 60
+        },
+        "directed_modulation_gate_pass_pct": {
+          "mean": 50,
+          "population_sd": 4.8166378315169185,
+          "min": 40,
+          "max": 56
+        },
+        "multihop_gate_pass_pct": {
+          "mean": 48.4,
+          "population_sd": 3.3226495451672298,
+          "min": 44,
+          "max": 52
+        },
+        "poetry_gate_pass_pct": {
+          "mean": 41.6,
+          "population_sd": 2.6532998322843198,
+          "min": 40,
+          "max": 48
+        }
+      },
+      "ouro-2.6b": {
+        "gate_pass_pct": {
+          "mean": 51,
+          "population_sd": 0.0,
+          "min": 51,
+          "max": 51
+        },
+        "label_agreement_pct": {
+          "mean": 99,
+          "population_sd": 0.0,
+          "min": 99,
+          "max": 99
+        },
+        "conjunctive_association_gate_pass_pct": {
+          "mean": 64,
+          "population_sd": 0.0,
+          "min": 64,
+          "max": 64
+        },
+        "directed_modulation_gate_pass_pct": {
+          "mean": 50,
+          "population_sd": 4.8166378315169185,
+          "min": 40,
+          "max": 56
+        },
+        "multihop_gate_pass_pct": {
+          "mean": 48.4,
+          "population_sd": 3.3226495451672298,
+          "min": 44,
+          "max": 52
+        },
+        "poetry_gate_pass_pct": {
+          "mean": 41.6,
+          "population_sd": 2.6532998322843198,
+          "min": 40,
+          "max": 48
+        }
+      },
+      "dory-4b": {
+        "gate_pass_pct": {
+          "mean": 55,
+          "population_sd": 0.0,
+          "min": 55,
+          "max": 55
+        },
+        "label_agreement_pct": {
+          "mean": 89,
+          "population_sd": 0.0,
+          "min": 89,
+          "max": 89
+        },
+        "conjunctive_association_gate_pass_pct": {
+          "mean": 92,
+          "population_sd": 0.0,
+          "min": 92,
+          "max": 92
+        },
+        "directed_modulation_gate_pass_pct": {
+          "mean": 48.4,
+          "population_sd": 4.5431266766402185,
+          "min": 40,
+          "max": 56
+        },
+        "multihop_gate_pass_pct": {
+          "mean": 43.2,
+          "population_sd": 3.4871191548325386,
+          "min": 36,
+          "max": 48
+        },
+        "poetry_gate_pass_pct": {
+          "mean": 36.4,
+          "population_sd": 3.3226495451672298,
+          "min": 32,
+          "max": 44
+        }
+      }
+    }
+  },
+  "u85": {
+    "per_seed": [
+      {
+        "version": "seed_0_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 53,
+            "label_agreement_pct": 97,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 44
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          }
+        }
+      },
+      {
+        "version": "seed_1_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 56,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 32
+          }
+        }
+      },
+      {
+        "version": "seed_2_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 60,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 36,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_3_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 64,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 44
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 40,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_4_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 53,
+            "label_agreement_pct": 97,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 48
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 40,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_5_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 56,
+            "poetry_gate_pass_pct": 44
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 40,
+            "multihop_gate_pass_pct": 60,
+            "poetry_gate_pass_pct": 44
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 40,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_6_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 53,
+            "label_agreement_pct": 97,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 44
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 51,
+            "label_agreement_pct": 99,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 40
+          }
+        }
+      },
+      {
+        "version": "seed_7_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 56,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 44
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 36
+          }
+        }
+      },
+      {
+        "version": "seed_8_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 60,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 40
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 40
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 52,
+            "multihop_gate_pass_pct": 44,
+            "poetry_gate_pass_pct": 32
+          }
+        }
+      },
+      {
+        "version": "seed_9_u85",
+        "metrics": {
+          "ouro-1.4b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 60,
+            "directed_modulation_gate_pass_pct": 48,
+            "multihop_gate_pass_pct": 48,
+            "poetry_gate_pass_pct": 52
+          },
+          "ouro-2.6b": {
+            "gate_pass_pct": 52,
+            "label_agreement_pct": 98,
+            "conjunctive_association_gate_pass_pct": 64,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 52,
+            "poetry_gate_pass_pct": 48
+          },
+          "dory-4b": {
+            "gate_pass_pct": 55,
+            "label_agreement_pct": 89,
+            "conjunctive_association_gate_pass_pct": 92,
+            "directed_modulation_gate_pass_pct": 44,
+            "multihop_gate_pass_pct": 40,
+            "poetry_gate_pass_pct": 44
+          }
+        }
+      }
+    ],
+    "aggregate": {
+      "ouro-1.4b": {
+        "gate_pass_pct": {
+          "mean": 52.1,
+          "population_sd": 0.5385164807134504,
+          "min": 51,
+          "max": 53
+        },
+        "label_agreement_pct": {
+          "mean": 97.9,
+          "population_sd": 0.5385164807134504,
+          "min": 97,
+          "max": 99
+        },
+        "conjunctive_association_gate_pass_pct": {
+          "mean": 60,
+          "population_sd": 0.0,
+          "min": 60,
+          "max": 60
+        },
+        "directed_modulation_gate_pass_pct": {
+          "mean": 56,
+          "population_sd": 4.732863826479693,
+          "min": 48,
+          "max": 64
+        },
+        "multihop_gate_pass_pct": {
+          "mean": 49.6,
+          "population_sd": 3.2,
+          "min": 44,
+          "max": 56
+        },
+        "poetry_gate_pass_pct": {
+          "mean": 42.8,
+          "population_sd": 4.019950248448356,
+          "min": 40,
+          "max": 52
+        }
+      },
+      "ouro-2.6b": {
+        "gate_pass_pct": {
+          "mean": 51.9,
+          "population_sd": 0.5385164807134504,
+          "min": 51,
+          "max": 53
+        },
+        "label_agreement_pct": {
+          "mean": 98.1,
+          "population_sd": 0.5385164807134504,
+          "min": 97,
+          "max": 99
+        },
+        "conjunctive_association_gate_pass_pct": {
+          "mean": 64,
+          "population_sd": 0.0,
+          "min": 64,
+          "max": 64
+        },
+        "directed_modulation_gate_pass_pct": {
+          "mean": 49.6,
+          "population_sd": 4.8,
+          "min": 40,
+          "max": 56
+        },
+        "multihop_gate_pass_pct": {
+          "mean": 51.6,
+          "population_sd": 4.17612260356422,
+          "min": 44,
+          "max": 60
+        },
+        "poetry_gate_pass_pct": {
+          "mean": 42.4,
+          "population_sd": 2.6532998322843198,
+          "min": 40,
+          "max": 48
+        }
+      },
+      "dory-4b": {
+        "gate_pass_pct": {
+          "mean": 55,
+          "population_sd": 0.0,
+          "min": 55,
+          "max": 55
+        },
+        "label_agreement_pct": {
+          "mean": 89,
+          "population_sd": 0.0,
+          "min": 89,
+          "max": 89
+        },
+        "conjunctive_association_gate_pass_pct": {
+          "mean": 92,
+          "population_sd": 0.0,
+          "min": 92,
+          "max": 92
+        },
+        "directed_modulation_gate_pass_pct": {
+          "mean": 48,
+          "population_sd": 4.732863826479693,
+          "min": 40,
+          "max": 56
+        },
+        "multihop_gate_pass_pct": {
+          "mean": 43.2,
+          "population_sd": 4.308131845707603,
+          "min": 36,
+          "max": 52
+        },
+        "poetry_gate_pass_pct": {
+          "mean": 36.8,
+          "population_sd": 3.4871191548325386,
+          "min": 32,
+          "max": 44
+        }
+      }
+    }
+  }
+}

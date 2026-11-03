@@ -1,0 +1,21 @@
+{
+  "wall_seconds": 0.07113327621482313,
+  "families": {
+    "multihop": {
+      "return_code": 0,
+      "parseable_reports": 2
+    },
+    "directed_modulation": {
+      "return_code": 0,
+      "parseable_reports": 2
+    },
+    "poetry": {
+      "return_code": 0,
+      "parseable_reports": 2
+    },
+    "conjunctive_association": {
+      "return_code": 0,
+      "parseable_reports": 2
+    }
+  }
+}

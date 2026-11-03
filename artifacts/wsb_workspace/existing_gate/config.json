@@ -1,0 +1,27 @@
+{
+  "dataset": "/root/wsb-agree-100",
+  "source_sha256": {
+    "seed_0.jsonl": "4e970a3527d1708320dc973d7769926ecb11a849e1fde28274d7f7b0f6bf7d77",
+    "seed_1.jsonl": "4397c0d7b98aeacfc8c1bc78bd067fa15b931f1768f79a3d825e532cc770ec46",
+    "seed_2.jsonl": "cd3925dfdfcfe42f185147ebc30c34967e4bea6692a5e693caabc2b104275bb7",
+    "seed_3.jsonl": "1725feb307006c0078fc8319a5bb7264d421b6ead6ed919f2f43b9fcd4928b67",
+    "seed_4.jsonl": "cea98f4000a6c0d820bac3ea28e298b2bf7d06557273047cefee41d71d4f4674",
+    "seed_5.jsonl": "20bd0184c55f269795e2d9bbe63b0dde2bb6fb4acebbe1d72dd71ca74f050767",
+    "seed_6.jsonl": "ddbcbb1660f016ae1274692b68a5cc5065921f903d81d9f773eef5d3e69e1aea",
+    "seed_7.jsonl": "524665a2201b0ffed1b092bc0b7f6b196645b13fa9091afbbe452966d1c5fe0f",
+    "seed_8.jsonl": "4e157c36302d01563701a452bf95c7415a00274b2e1f6fce7a30c942a609c2e0",
+    "seed_9.jsonl": "fadca52126a696b08cd0b1fc2893491711344fe606e6050f59359132d0f11987",
+    "seed_0_u85.jsonl": "0192fba67dfccc8aea42b19d4209ecdb3433a2491b883156b5eb190cc30167b3",
+    "seed_1_u85.jsonl": "c8370224b4e196279b37b28bcb75256c979c01972e2711f6be2d239b8ab13b00",
+    "seed_2_u85.jsonl": "aa1706311b5fa15296ac73ed533589b379a538a9dad9c7f82e7a3397996c8258",
+    "seed_3_u85.jsonl": "8d57ea5f07d53641c6fbf56bc52e8393b8d3ee2909e316ecf8b579014e7160af",
+    "seed_4_u85.jsonl": "915edfad6103f7e637d951dea3edde565555b7f0cddf20d08e10e8f4a7c4bf55",
+    "seed_5_u85.jsonl": "12894b4bab38c52a2a841085e2445a7727ded58c098bbf2f5a392d94e59fa707",
+    "seed_6_u85.jsonl": "8d79e5ca23656f50de6c341422b8fee9b836136d90d3f3b2cbdbe463ece02226",
+    "seed_7_u85.jsonl": "676c05bdc052104477c1232e497bc9e7b8579d1b2ae7cfa785e3d6ee24c2edff",
+    "seed_8_u85.jsonl": "f10557b634823fa044ea73908d95c594e72c5b4be6f1166387970ddde332345b",
+    "seed_9_u85.jsonl": "6a4208460de14261906264984b0cd527c62736408a5a55ecc50e80c6afc90783"
+  },
+  "spread": "population standard deviation across 10 overlapping dataset seeds per tier",
+  "inference_run": false
+}
