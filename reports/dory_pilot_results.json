@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-03 20:49 UTC",
+  "updated_utc": "2026-11-03 20:50 UTC",
   "dataset": "GPQA",
   "n_questions": 30,
   "seed": 42,
@@ -853,25 +853,25 @@
       "space": "reasoning",
       "loops": 4,
       "status": "running",
-      "n": 109,
-      "baseline_accuracy": 0.5454545454545454,
+      "n": 112,
+      "baseline_accuracy": 0.5833333333333334,
       "formal_macro_compliance": 0.0,
       "scored_constraint_modes": 8,
       "capped": 12,
-      "generation_seconds": 3450.999870134983,
-      "output_tokens_per_second": 313.02956842990153,
+      "generation_seconds": 3506.3513844590634,
+      "output_tokens_per_second": 316.7569014682039,
       "conditions": {
         "alternating_case": {
-          "n": 10,
-          "correct": 5,
-          "compliance_n": 10,
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 11,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 1
         },
         "baseline": {
-          "n": 11,
-          "correct": 6,
+          "n": 12,
+          "correct": 7,
           "compliance_n": 0,
           "compliant": null,
           "jointly_correct_compliant": null,
@@ -910,9 +910,9 @@
           "capped": 2
         },
         "multiple_word_suppression": {
-          "n": 12,
-          "correct": 7,
-          "compliance_n": 12,
+          "n": 13,
+          "correct": 8,
+          "compliance_n": 13,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 1
