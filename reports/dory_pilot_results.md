@@ -5,7 +5,7 @@ How do loop count and disabling thinking affect Dory's accuracy and control over
 Same 30 GPQA questions (seed 42), baseline + nine constraints per setup. Dory BF16, pinned revision `f6c832e`; original greedy decoding and **25,000-token limit**, one L40S. “Thinking off” closes `<think></think>` before generation; output explanations are still requested. One-loop runs follow the 4-loop thinking-trace run.
 
 # Factual Observations
-Updated **2026-11-03 22:46 UTC**. Scores below are shown only for completed settings.
+Updated **2026-11-03 22:47 UTC**. Scores below are shown only for completed settings.
 
 | Setup | Loops | Status | Baseline accuracy | Formal compliance | Capped | Time | Tokens/s |
 |---|---:|---|---:|---:|---:|---:|---:|
