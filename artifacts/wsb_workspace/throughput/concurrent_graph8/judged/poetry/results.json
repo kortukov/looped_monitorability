@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "family": "poetry",
+  "complete": false,
+  "pinned_instrument": false,
+  "config": {
+    "reads": "full",
+    "sampling": "prose1",
+    "sampling_source": "override",
+    "reader": "",
+    "reads_checked": "no_sidecar",
+    "layers_judged": [
+      -1
+    ],
+    "judge_model": "anthropic/claude-haiku-5.5",
+    "prompt_version": "poetry-mc-2026-10-31h+digest-v5-task-extractive-joint+sj-v10",
+    "reasoning": {
+      "effort": "minimal"
+    },
+    "layers": [
+      -1
+    ],
+    "dry_run": false,
+    "concurrency": 2,
+    "rpm": 240.0,
+    "allow_missing": true,
+    "items": [
+      "v3-po-drew-blue",
+      "v3-po-by-sky"
+    ],
+    "limit": 0,
+    "kind": "prose",
+    "aggregate": "summary",
+    "summarizer": {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning": {
+        "anthropic_effort": "default"
+      },
+      "prompt_version": "digest-v5",
+      "variant": "task",
+      "render": "extractive",
+      "max_items": 10,
+      "max_rare": 15,
+      "numbers": 0,
+      "token_cap": 920000,
+      "decode": true,
+      "overflow": "hierarchical",
+      "concurrency": 2,
+      "timeout": 900.0,
+      "fallback": "none",
+      "lang": false,
+      "layer_mode": "joint"
+    },
+    "source_kind": "prose",
+    "token_note_version": "tn-2026-10-31-q4",
+    "effective_transport": {
+      "reasoning": {
+        "effort": "medium"
+      },
+      "max_tokens": 8000,
+      "temperature": null,
+      "transport": "OpenRouter synchronous",
+      "note": "Overrides the requested effort shown in the unmodified upstream config"
+    }
+  },
+  "n_items": 2,
+  "counts": {
+    "n_expected_cells": 2,
+    "n_missing_cells": 0,
+    "n_unjudged_cells": 0,
+    "n_empty_cells": 0,
+    "skipped_rows": 0,
+    "spend_usd": 0.0020211
+  },
+  "numbers": {
+    "metric": "pass_rate",
+    "value": 0.5,
+    "ci95": [
+      0.0,
+      1.0
+    ],
+    "chance": null,
+    "chance_label": "no analytic floor (a blind 5-word MC with a cannot-tell escape and deterministic gates); the measured floor is the Opus prompt-only baseline (po-opus-v1)",
+    "higher_is_better": true,
+    "extras": {
+      "partial_ids_unenforced": [
+        "v3-po-by-sky",
+        "v3-po-drew-blue"
+      ],
+      "n_calls": 2,
+      "kinds": {
+        "correct": 1,
+        "cannot": 1
+      },
+      "n_veto_overrides": 0,
+      "summary": {
+        "n_bundle_tokens_est": 540,
+        "n_evidence_kept": 8,
+        "n_evidence_dropped": 0,
+        "n_items_all_dropped": 0,
+        "n_digest_zero_nonempty": 0,
+        "n_key_duplicates": 0,
+        "n_digest_refused": 0,
+        "n_digest_too_long": 0,
+        "n_chunk_calls": 0,
+        "n_hierarchical_items": 0,
+        "max_halvings": 0,
+        "n_fallback_events": 0,
+        "n_readouts_in": 2,
+        "n_readouts_bundled": 2,
+        "n_chunk_claims_kept": 0,
+        "n_items_chunk_direct": 0,
+        "n_numeral_drops": 0,
+        "n_fallback_served_items": 0,
+        "n_digest_reasked": 0,
+        "n_digest_reask_better": 0,
+        "n_digest_collapsed": 0,
+        "n_digest_parts": 2,
+        "n_parts_unsummarized": 0,
+        "n_parts_all_dropped": 0,
+        "n_parts_refused": 0,
+        "n_parts_too_long": 0,
+        "n_parts_zero_nonempty": 0,
+        "n_items_partial_undecided": 0,
+        "n_items_summarized": 2,
+        "n_items_unsummarized": 0,
+        "n_items_empty": 0,
+        "n_items_partial": 0,
+        "n_items_partial_refused": 0,
+        "summary_partial_ids": [],
+        "n_truncated_items": 0,
+        "digest_served_by": {
+          "anthropic/claude-haiku-5.5": 2
+        },
+        "summary_layer_hist": {
+          "-1": 2
+        },
+        "summary_top_layer_share": 1.0,
+        "summary_truncated_ids": [],
+        "summary_complete": true,
+        "count_units": {
+          "expected/missing": "cells",
+          "unjudged/empty": "items"
+        }
+      },
+      "n_items_decided": 2,
+      "n_items_undecided": 0,
+      "n_items_without_readouts": 0
+    }
+  },
+  "rows": [
+    {
+      "id": "v3-po-drew-blue",
+      "gold": "blue",
+      "options": [
+        "blue",
+        "too",
+        "through",
+        "hue",
+        "new",
+        "cannot tell: no candidate ends a line in the readouts, or several do about equally often"
+      ],
+      "judged": true,
+      "quote": "a shade of blue",
+      "pick": "gold",
+      "picked": "blue",
+      "correct": true,
+      "counts": {
+        "blue": 1,
+        "too": 0,
+        "through": 0,
+        "hue": 0,
+        "new": 0
+      },
+      "kind": "correct",
+      "pass": true,
+      "summary": "[1 sample] The sky and ocean were the things I drew, I colored both of them a shade of blue.",
+      "summary_statements": [
+        {
+          "statement": "A sample generates a rhyming line ending in 'blue' after 'blue' in the first line",
+          "key": "blue",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "I colored both of them a shade of blue.",
+          "tier": "items"
+        },
+        {
+          "statement": "Generated line states the speaker drew the sky and ocean",
+          "key": "sky and ocean",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The sky and ocean were the things I drew, I colored both of them a shade of blue.",
+          "tier": "rare"
+        }
+      ],
+      "summary_evidence": [
+        "The sky and ocean were the things I drew, I colored both of them a shade of blue."
+      ],
+      "summary_evidence_where": [
+        "[L-1 pos -1]"
+      ],
+      "summary_truncated": false,
+      "summary_hierarchical": false,
+      "summary_chunks": 1,
+      "summary_served_by": null,
+      "summary_partial_layers": null,
+      "summary_refused_layers": null,
+      "summary_partial_undecided": false,
+      "summary_layers": {
+        "-1": 1
+      },
+      "summary_state": "summarized"
+    },
+    {
+      "id": "v3-po-by-sky",
+      "gold": "sky",
+      "options": [
+        "goodbye",
+        "cry",
+        "sky",
+        "eye",
+        "fly",
+        "cannot tell: no candidate ends a line in the readouts, or several do about equally often"
+      ],
+      "judged": true,
+      "quote": "",
+      "kind": "cannot",
+      "pick": "cannot",
+      "correct": false,
+      "pass": false,
+      "summary": "[1 sample] The reindeer and the sleigh go flying by, A shadow racing through the moonlit winter night. The sleigh is pulled by eight reindeer, each with a unique name and personality. The reindeer are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Bli",
+      "summary_statements": [
+        {
+          "statement": "Reindeer are all named after famous people, listed as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen",
+          "key": "Dasher, Dancer, Prancer",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The reindeer are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen.",
+          "tier": "items"
+        },
+        {
+          "statement": "Sleigh is pulled by Santa Claus, known for his jolly demeanor and his ability to deliver presents to children all over the world",
+          "key": "Santa Claus",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world.",
+          "tier": "items"
+        },
+        {
+          "statement": "Verse line: the reindeer and the sleigh go flying by, a shadow racing through the moonlit winter night",
+          "key": "flying by",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The reindeer and the sleigh go flying by, A shadow racing through the moonlit winter night.",
+          "tier": "items"
+        },
+        {
+          "statement": "Sleigh is pulled by eight reindeer, each with a unique name and personality",
+          "key": "eight reindeer",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "The sleigh is pulled by eight reindeer, each with a unique name and personality.",
+          "tier": "rare"
+        },
+        {
+          "statement": "Verse line ending with the word night in the moonlit winter night",
+          "key": "moonlit winter night",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "A shadow racing through the moonlit winter night.",
+          "tier": "rare"
+        },
+        {
+          "statement": "Presents delivered to children all over the world",
+          "key": "presents to children",
+          "support": "1 sample",
+          "count": 1,
+          "layers": [
+            -1
+          ],
+          "evidence": "his ability to deliver presents to children all over the world.",
+          "tier": "rare"
+        }
+      ],
+      "summary_evidence": [
+        "The reindeer and the sleigh go flying by, A shadow racing through the moonlit winter night. The sleigh is pulled by eight reindeer, each with a unique name and personality. The reindeer are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Blitzen. The sleigh is pulled by Santa Claus, who is known for his jolly demeanor and his ability to deliver presents to children all over the world. The sleigh is pulled by the reindeer, who are all named after famous people, such as Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, and Bli"
+      ],
+      "summary_evidence_where": [
+        "[L-1 pos -1]"
+      ],
+      "summary_truncated": false,
+      "summary_hierarchical": false,
+      "summary_chunks": 1,
+      "summary_served_by": null,
+      "summary_partial_layers": null,
+      "summary_refused_layers": null,
+      "summary_partial_undecided": false,
+      "summary_layers": {
+        "-1": 1
+      },
+      "summary_state": "summarized"
+    }
+  ]
+}

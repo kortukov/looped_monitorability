@@ -13,7 +13,13 @@ Read `AGENTS.md` for the required report structure. This WSB task is separate fr
 - Existing gate statistics: `experiments/wsb_agree_summary.py` and `reports/wsb_agree_explicit_reasoning_baseline.md`.
 - Pilot report: `reports/wsb_workspace_pilot.md`; portable raw artifacts: `artifacts/wsb_workspace/pilot_ouro14b/`.
 
-Generation uses greedy decoding, BF16 weights/cache, no quantization, thinking off, a 25,000-token allowance plus complete prompt context, and a stop after `</final>`. **The validated smoke test also constrains the envelope:** a single-paragraph report of 1–2,048 characters, followed by a final section of 1–1,024 characters. See `FORMAT_REGEX` and the saved config. The character limits are additional decoding constraints, even though no response exhausted the token allowance. Do not describe this as unrestricted reasoning or claim the constraints affect formatting only.
+Generation uses greedy decoding, BF16 weights/cache, no quantization, thinking off, a 25,000-token allowance plus complete prompt context, and a stop after `</final>`. The runner now **queues all pending requests at once**, lets vLLM continuously batch them, and saves completions as they arrive. `--max-num-seqs` is an active-sequence ceiling, not a manual batch size or limit on queued requests. Eight was chosen because the pilot has eight requests; it is a tested starting point, **not a hardware-derived optimum**. Tune a larger workload using KV availability, token throughput and preemption. Do not assume eight million active sequences can fit because the input queue can be large.
+
+Use `--cuda-graphs` for the tested fast Ouro path: decode graph replay with compilation mode 0 and `FULL_DECODE_ONLY`. On the same eight items, generation fell from 74.3 seconds serially to 40.3 seconds with continuous batching, then 13.2 seconds with graphs (113.3 tokens/s, about 5.6x faster than serial). All eight token sequences matched between the two concurrent runs. See `reports/wsb_workspace_throughput.md` and `artifacts/wsb_workspace/throughput/`. The serial pilot report remains the source of its original readout scores; fresh concurrent outputs are saved separately. Aggregate timing uses batch wall time, never the sum of overlapping request latencies.
+
+The concurrent graph pilot was also judged end to end: 1/2 recovered for multihop, 1/2 directed modulation, 1/2 poetry and 0/2 conjunctive association, with 8/8 parsed and judged and no token-cap truncations. These outputs differ from some serial completions, so do not merge the two sets. The runner resolves vLLM's internal enqueue IDs to external completion IDs explicitly, avoiding cross-item assignment errors.
+
+**The validated smoke test also constrains the envelope:** a single-paragraph report of 1–2,048 characters, followed by a final section of 1–1,024 characters. See `FORMAT_REGEX` and the saved config. The character limits are additional decoding constraints, even though no response exhausted the token allowance. Do not describe this as unrestricted reasoning or claim the constraints affect formatting only.
 
 Exploratory free-format output omitted tags or quoted them as instructions. An unbounded structured report did not finish its first poetry request before cancellation. The bounded format completed all eight. Earlier attempts and their saved outputs are preserved under the artifact directory; interrupted requests are not completed generations. Do not silently combine attempts.
 
@@ -40,7 +46,7 @@ Use an existing `OPENROUTER_API_KEY` environment variable for judging. Do not pu
 Use a fresh output directory if changing any scientific setting. Generation saves every completed request immediately; the same command resumes an unchanged run. It refuses an incompatible manifest/config.
 
 ```bash
-.venv-wsb-vllm/bin/python experiments/wsb_workspace_pilot.py generate --out results/wsb_workspace_pilot
+.venv-wsb-vllm/bin/python experiments/wsb_workspace_pilot.py generate --out results/wsb_workspace_pilot --cuda-graphs
 .venv-wsb-judge/bin/python experiments/wsb_workspace_judge.py --out results/wsb_workspace_pilot --dry-run
 .venv-wsb-judge/bin/python experiments/wsb_workspace_judge.py --out results/wsb_workspace_pilot
 .venv-wsb-judge/bin/python experiments/wsb_workspace_summarize.py --out results/wsb_workspace_pilot
