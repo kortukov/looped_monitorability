@@ -1,9 +1,0 @@
-{
-  "n": 4,
-  "parse_ok": 4,
-  "truncated": 0,
-  "generated_tokens": 370,
-  "generation_seconds": 18.285257990006357,
-  "tokens_per_second": 20.23487993454728,
-  "readout_coordinates": "layer=-1,pos=-1 denote generated reports, not activation cells"
-}

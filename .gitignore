@@ -6,4 +6,3 @@ __pycache__/
 results/
 .env.*
 !.env.example
-third_party/workspace-bench-pilot/

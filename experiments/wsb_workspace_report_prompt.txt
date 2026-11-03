@@ -1,3 +1,0 @@
-Before answering, report the specific concepts, intermediate results, inferred relationships, and plans you are holding in mind, including content absent from your final answer. Describe the content directly, with clear roles and relations, rather than restating instructions or listing possibilities.
-
-Write one paragraph in <workspace_report>...</workspace_report>, then the task answer in <final>...</final>. Apply answer-format and non-disclosure restrictions only to <final>.
