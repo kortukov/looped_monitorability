@@ -138,9 +138,3 @@ state are in `results/dory_large_pilot25000/`, with a live report at
 `reports/dory_large_pilot25000.md`. Each of four settings has 300 requests,
 for 1,200 total. Completion is indicated by supervisor phase `complete`, not
 by launch. The older full evaluation remains paused using its per-run flags.
-
-## WorkspaceBench workspace report baseline
-
-The separate WSB experiment compares collaborator-provided original-prompt J-lens readouts with explicitly elicited workspace reports. Start with [WSB_HANDOFF.md](WSB_HANDOFF.md) for fresh-host setup, the bundled dataset, commands, measured pilot results and remaining comparison choices. The runner queues all requests for continuous batching; `--cuda-graphs` enables the tested fast decoding path. The active-sequence ceiling is configurable and should be tuned for larger workloads.
-
-The [pipeline pilot](reports/wsb_workspace_pilot.md) completed all eight items and all four family graders. The [throughput benchmark](reports/wsb_workspace_throughput.md) reduced generation from 74.3 to 13.2 seconds on an RTX 4090. No full WSB evaluation has been launched.

@@ -121,9 +121,7 @@ def generate(args):
               "stop": ["</final>"], "include_stop_str_in_output": True,
               "format_constraint": FORMAT_REGEX if args.format == "regex" else None,
               "max_tokens": args.max_tokens, "max_model_len": context,
-              "max_num_seqs": args.max_num_seqs, "enforce_eager": not args.cuda_graphs,
-              "submission": "all_pending_requests_continuous_batching",
-              "compilation_config": {"mode": 0, "cudagraph_mode": "FULL_DECODE_ONLY"} if args.cuda_graphs else None,
+              "max_num_seqs": 1, "enforce_eager": True,
               "gpu_memory_utilization": args.gpu_memory_utilization,
               "packages": {p: importlib.metadata.version(p) for p in ("vllm", "torch", "transformers")},
               "gpu": subprocess.check_output(["nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv,noheader"], text=True).strip()}
@@ -138,51 +136,29 @@ def generate(args):
         llm = LLM(model=args.model, revision=args.revision, tokenizer_revision=args.revision,
                   trust_remote_code=True, dtype="bfloat16", kv_cache_dtype="auto",
                   hf_overrides=overrides,
-                  max_model_len=context, max_num_seqs=args.max_num_seqs, gpu_memory_utilization=args.gpu_memory_utilization,
-                  enforce_eager=not args.cuda_graphs,
-                  compilation_config={"mode": 0, "cudagraph_mode": "FULL_DECODE_ONLY"} if args.cuda_graphs else None,
-                  enable_prefix_caching=False, seed=args.seed)
+                  max_model_len=context, max_num_seqs=1, gpu_memory_utilization=args.gpu_memory_utilization,
+                  enforce_eager=True, enable_prefix_caching=False, seed=args.seed)
         write_json(args.out / "startup.json", {"model_startup_seconds": time.perf_counter() - started})
         params = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=args.max_tokens,
                                 seed=args.seed, skip_special_tokens=False,
                                 stop=["</final>"], include_stop_str_in_output=True,
                                 structured_outputs=StructuredOutputsParams(regex=FORMAT_REGEX) if args.format == "regex" else None)
-        # Enqueue the whole workload so vLLM can refill freed slots continuously.
-        # Save each completion as it arrives, rather than waiting for the longest.
-        started = time.perf_counter()
-        request_ids = llm.enqueue([prompt for _, prompt in pending], params, use_tqdm=False)
-        # enqueue() returns randomized internal IDs in the pinned vLLM, while
-        # RequestOutput carries external IDs. Resolve this before any state is removed.
-        states = llm.llm_engine.output_processor.request_states
-        requests = {states[rid].external_req_id: pair for rid, pair in zip(request_ids, pending)}
-        assert len(requests) == len(pending)
-        finished, interrupted = 0, True
-        try:
-            while llm.llm_engine.has_unfinished_requests():
-                for output in llm.llm_engine.step():
-                    if not output.finished:
-                        continue
-                    row, prompt = requests[output.request_id]
-                    seconds = time.perf_counter() - started
-                    completion = output.outputs[0]
-                    result = {"family": row["family"], "id": row["id"], "label": row["label"],
-                              "model_gate_pass": row["results"][subject_key],
-                              "rendered_prompt": prompt, "raw_text": completion.text,
-                              "prompt_tokens": len(output.prompt_token_ids), "generated_tokens": len(completion.token_ids),
-                              "token_ids": completion.token_ids, "finish_reason": completion.finish_reason,
-                              "stop_reason": completion.stop_reason, "request_seconds": seconds,
-                              "timing_unit": "seconds since batch submission, including queue wait",
-                              **parse_sections(completion.text)}
-                    with (args.out / "generations.jsonl").open("a") as fh:
-                        fh.write(json.dumps(result, ensure_ascii=False) + "\n")
-                    finished += 1
-                    print(f"{finished}/{len(pending)} {row['family']}/{row['id']}: parse={result['parse_ok']} tokens={result['generated_tokens']} elapsed={seconds:.2f}s", flush=True)
-            interrupted = False
-        finally:
-            with (args.out / "generation_runs.jsonl").open("a") as fh:
-                fh.write(json.dumps({"wall_seconds": time.perf_counter() - started,
-                    "submitted": len(pending), "completed": finished, "interrupted": interrupted,
-                    "max_num_seqs": args.max_num_seqs}) + "\n")
+        # Save each completed request immediately; a restart reuses durable results.
+        for row, prompt in pending:
+            started = time.perf_counter()
+            output = llm.generate([prompt], params, use_tqdm=False)[0]
+            seconds = time.perf_counter() - started
+            completion = output.outputs[0]
+            result = {"family": row["family"], "id": row["id"], "label": row["label"],
+                      "model_gate_pass": row["results"][subject_key],
+                      "rendered_prompt": prompt, "raw_text": completion.text,
+                      "prompt_tokens": len(output.prompt_token_ids), "generated_tokens": len(completion.token_ids),
+                      "token_ids": completion.token_ids, "finish_reason": completion.finish_reason,
+                      "stop_reason": completion.stop_reason, "generation_seconds": seconds,
+                      **parse_sections(completion.text)}
+            with (args.out / "generations.jsonl").open("a") as fh:
+                fh.write(json.dumps(result, ensure_ascii=False) + "\n")
+            print(f"{row['family']}/{row['id']}: parse={result['parse_ok']} tokens={result['generated_tokens']} seconds={seconds:.2f}", flush=True)
     export(args.out)
 
 
@@ -197,15 +173,13 @@ def export(out):
                     # Sentinel coordinates are a transport container, not a claimed activation site.
                     fh.write(json.dumps({"id": row["id"], "layer": -1, "pos": -1,
                                          "samples": [row["workspace_report"]]}, ensure_ascii=False) + "\n")
-    runs = read_jsonl(out / "generation_runs.jsonl")
-    seconds = sum(r["wall_seconds"] for r in runs) if runs else sum(r["generation_seconds"] for r in rows)
+    seconds = sum(r["generation_seconds"] for r in rows)
     write_json(out / "generation_summary.json", {
         "n": len(rows), "parse_ok": sum(r["parse_ok"] for r in rows),
         "truncated": sum(r["finish_reason"] == "length" for r in rows),
         "generated_tokens": sum(r["generated_tokens"] for r in rows),
         "generation_seconds": seconds,
         "tokens_per_second": sum(r["generated_tokens"] for r in rows) / seconds if seconds else None,
-        "timing_source": "batch wall time" if runs else "legacy serial request durations",
         "readout_coordinates": "layer=-1,pos=-1 denote generated reports, not activation cells",
     })
 
@@ -223,14 +197,9 @@ def main():
     ap.add_argument("--model", choices=tuple(SUBJECTS), default=MODEL)
     ap.add_argument("--revision", default=None)
     ap.add_argument("--max-tokens", type=int, default=25000)
-    ap.add_argument("--max-num-seqs", type=int, default=8,
-                    help="Active-sequence ceiling, not queue size; 8 is the tested pilot setting, not an optimum")
-    ap.add_argument("--cuda-graphs", action="store_true", help="Capture decode graphs without changing precision or token budgets")
     ap.add_argument("--format", choices=("regex", "free"), default="regex")
     ap.add_argument("--gpu-memory-utilization", type=float, default=0.96)
     args = ap.parse_args()
-    if args.max_num_seqs < 1:
-        raise ValueError("--max-num-seqs must be positive")
     args.revision = args.revision or SUBJECTS[args.model][1]
     if args.stage == "prepare":
         prepare(args)
