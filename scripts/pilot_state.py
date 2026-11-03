@@ -38,19 +38,41 @@ def read_jsonl(path):
     return rows
 
 
+def repair_jsonl_tail(f):
+    """Repair only an unterminated last record; normal appends read one byte."""
+    end = f.seek(0, 2)
+    if not end:
+        return
+    f.seek(end - 1)
+    if f.read(1) == b"\n":
+        return
+    position, pieces = end, []
+    while position:
+        start = max(0, position - 65536)
+        f.seek(start)
+        part = f.read(position - start)
+        newline = part.rfind(b"\n")
+        if newline >= 0:
+            pieces.append(part[newline+1:])
+            record_start = start + newline + 1
+            break
+        pieces.append(part)
+        position = start
+    else:
+        record_start = 0
+    tail = b"".join(reversed(pieces))
+    try:
+        json.loads(tail)
+        f.seek(0, 2)
+        f.write(b"\n")
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        f.truncate(record_start)
+
+
 def append_jsonl(path, row):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a+b") as f:
-        f.seek(0)
-        data = f.read()
-        if data and not data.endswith(b"\n"):
-            start = data.rfind(b"\n") + 1
-            try:
-                json.loads(data[start:])
-                f.seek(0, 2)
-                f.write(b"\n")
-            except (json.JSONDecodeError, UnicodeDecodeError):
-                f.truncate(start)
+        repair_jsonl_tail(f)
         f.seek(0, 2)
         f.write((json.dumps(row, ensure_ascii=False) + "\n").encode())
         f.flush()
@@ -107,16 +129,24 @@ def consume_batch(llm, prompts, params, out, mode, batch_ids, on_complete):
              "status": "running", "completed": 0, "elapsed_seconds": 0}
     write_json(state_path, state)
     request_ids = llm.enqueue(prompts, params, use_tqdm=False)
-    index = dict(zip(request_ids, batch_ids))
+    # enqueue() returns internal IDs (with random suffixes in recent vLLM),
+    # while step() returns the original external IDs. Capture the engine's
+    # explicit mapping before request states are removed on completion.
+    states = llm.llm_engine.output_processor.request_states
+    external_ids = [states[r].external_req_id for r in request_ids]
+    if len(set(external_ids)) != len(batch_ids):
+        raise ValueError("Expected one unique external request ID per question")
+    index = dict(zip(external_ids, batch_ids))
+    internal_ids = dict(zip(external_ids, request_ids))
     finished = set()
     last_save = started
     try:
         while llm.llm_engine.has_unfinished_requests():
             if pause_requested(out):
                 state["status"] = "paused"
-                for request_id in request_ids:
-                    if request_id not in finished:
-                        llm.llm_engine.abort_request(request_id)
+                remaining = [internal_ids[r] for r in external_ids if r not in finished]
+                if remaining:
+                    llm.llm_engine.abort_request(remaining, internal=True)
                 break
             for output in llm.llm_engine.step():
                 if not output.finished or output.request_id in finished:

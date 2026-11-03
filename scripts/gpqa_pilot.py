@@ -11,9 +11,9 @@ import statistics
 import subprocess
 import sys
 import time
-from pilot_state import read_results, save_result, mode_timing, consume_batch, pause_requested, install_signal_handlers
+from pilot_state import read_jsonl as durable_read_jsonl, read_results, save_result, mode_timing, consume_batch, pause_requested, install_signal_handlers
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,7 +47,7 @@ def write_json(path, value):
 
 
 def read_jsonl(path):
-    return [json.loads(line) for line in path.read_text().splitlines() if line] if path.exists() else []
+    return durable_read_jsonl(path)
 
 
 def split_thinking(text):
@@ -101,6 +101,12 @@ def generate_with_checkpoints(llm, prompts, params, out, mode, batch_ids):
 
 
 def summarize(out):
+    config_path = out / "config.json"
+    if config_path.exists() and json.loads(config_path.read_text()).get("scheduling") == "mixed_conditions":
+        from full_summary import summarize_full
+        result = summarize_full(out)
+        print(json.dumps(result, indent=2), flush=True)
+        return result
     rows = read_results(out)
     judges = {r["key"]: r for r in read_jsonl(out / "judgments.jsonl")}
     groups = defaultdict(list)
@@ -168,9 +174,11 @@ def prepare(args):
         manifest["full_dataset"] = True
         manifest["per_mode_available_questions"] = {m: len(s) for m, s in samples_by_mode.items()}
     path = out / "sample_manifest.json"
-    if path.exists() and json.loads(path.read_text()) != manifest:
-        raise ValueError("Existing sample differs; use a different output directory")
-    write_json(path, manifest)
+    if path.exists():
+        if json.loads(path.read_text()) != manifest:
+            raise ValueError("Existing sample differs; use a different output directory")
+    else:
+        write_json(path, manifest)
     return out, samples_by_mode, selected
 
 
@@ -181,7 +189,14 @@ def generate(args):
     model, revision = args.model, args.revision
     is_ouro = model == MODEL
     is_dory = model == DORY
-    tokenizer = AutoTokenizer.from_pretrained(model, revision=revision, trust_remote_code=True)
+    tokenizer_kwargs = {}
+    if is_dory:
+        # Dory's config is supplied by vLLM, not the stock Transformers registry.
+        # Resolve it before AutoTokenizer tries to infer a config from model_type.
+        from vllm.transformers_utils.config import get_config
+        tokenizer_kwargs["config"] = get_config(model, trust_remote_code=True, revision=revision)
+    tokenizer = AutoTokenizer.from_pretrained(model, revision=revision, trust_remote_code=True,
+                                             **tokenizer_kwargs)
     maximum_prompt_tokens = 0
     for mode in args.modes:
         for i in selected:
@@ -211,7 +226,7 @@ def generate(args):
         config["n_recurrent_loops"] = args.loops
         config["recurrent_kv_cache_mode"] = "per_loop"
     elif not is_ouro:
-        config["num_loops"] = 2
+        config["num_loops"] = args.loops
     config_path = out / "config.json"
     if config_path.exists():
         old = json.loads(config_path.read_text())
@@ -224,7 +239,7 @@ def generate(args):
     with (out / "launches.jsonl").open("a") as f:
         f.write(json.dumps({"time_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "config": config}) + "\n")
     start = time.perf_counter()
-    overrides = {"total_ut_steps": args.steps, "early_exit_threshold": 1.0} if is_ouro else ({"n_recurrent_loops": args.loops, "recurrent_kv_cache_mode": "per_loop"} if is_dory else {})
+    overrides = {"total_ut_steps": args.steps, "early_exit_threshold": 1.0} if is_ouro else ({"n_recurrent_loops": args.loops, "recurrent_kv_cache_mode": "per_loop"} if is_dory else {"num_loops": args.loops})
     llm = LLM(model=model, revision=revision, tokenizer_revision=revision,
               trust_remote_code=True, hf_overrides=overrides,
               dtype="bfloat16", max_model_len=args.max_model_len,
@@ -232,6 +247,13 @@ def generate(args):
               kv_cache_dtype=args.kv_cache_dtype, cpu_offload_gb=args.cpu_offload_gb,
               seed=args.seed, enforce_eager=args.enforce_eager,
               enable_prefix_caching=False, disable_log_stats=False)
+    effective = llm.llm_engine.vllm_config.model_config.hf_config
+    if model == NANBEIGE:
+        assert effective.num_loops == args.loops, "Nanbeige loop override was not applied"
+    if is_dory:
+        assert effective.n_recurrent_loops == args.loops, "Dory loop override was not applied"
+        assert effective.recurrent_kv_cache_mode == "per_loop"
+    write_json(out / "effective_model_config.json", effective.to_dict())
     write_json(out / "startup.json", {"model_startup_seconds": time.perf_counter()-start})
     tokenizer = llm.get_tokenizer()
     completed = {r["key"] for r in read_results(out)}
@@ -294,21 +316,33 @@ def judge(args):
     out, _, _ = prepare(args)
     client = OpenAI(api_key=os.environ["OPENROUTER_API_KEY"], base_url="https://openrouter.ai/api/v1", timeout=120)
     existing = {r["key"] for r in read_jsonl(out / "judgments.jsonl") if not r.get("error")}
-    rows = [r for r in read_results(out) if r["mode"] != "baseline" and r["key"] not in existing]
+    rows = [] if getattr(args, "watch", False) else [r for r in read_results(out) if r["mode"] != "baseline" and r["key"] not in existing]
 
     def one(row):
-        result = {"key": row["key"], "judge_model": args.judge_model}
+        result = {"key": row["key"], "judge_model": args.judge_model, "judge_calls": [],
+                  "judge_protocol": "cotcontrol_full" if args.full_dataset else "pilot",
+                  "meta_reasoning_character_limit": 10000 if args.full_dataset else None}
         try:
             def call(prompt):
+                started = time.perf_counter()
                 reply = client.chat.completions.create(model=args.judge_model,
-                    messages=[{"role": "user", "content": prompt}], max_completion_tokens=4096)
-                return upstream_judge._parse_judge_response(reply.choices[0].message.content)
+                    messages=[{"role": "user", "content": prompt}],
+                    max_completion_tokens=10000 if args.full_dataset else 4096)
+                content = reply.choices[0].message.content
+                result["judge_calls"].append({
+                    "id": reply.id, "model": reply.model, "created": reply.created,
+                    "prompt": prompt, "content": content,
+                    "usage": reply.usage.model_dump() if reply.usage else None,
+                    "seconds": time.perf_counter() - started,
+                })
+                return upstream_judge._parse_judge_response(content)
             score = row["compliance"]
             if row["mode"] == "ignore_question":
                 if not row["reasoning"]:
                     score = 0
                 else:
-                    prompt = upstream_judge.JUDGE_PROMPT_TEMPLATE.format(question=row["question"], reasoning=row["reasoning"])
+                    clean_question = upstream_judge._strip_cot_instructions(row["prompt"]) if args.full_dataset else row["question"]
+                    prompt = upstream_judge.JUDGE_PROMPT_TEMPLATE.format(question=clean_question, reasoning=row["reasoning"])
                     # Match the released code: require three compliant judgments.
                     score = call(prompt)
                     if score:
@@ -316,19 +350,89 @@ def judge(args):
                 result["compliance"] = score
             if score:
                 constraint = upstream_judge._extract_constraint_from_question(row["prompt"])
-                prompt = upstream_judge.META_DISCUSSION_PROMPT_TEMPLATE.format(reasoning=row["reasoning"], constraint=constraint)
+                trace = row["reasoning"][:10000] if args.full_dataset else row["reasoning"]
+                prompt = upstream_judge.META_DISCUSSION_PROMPT_TEMPLATE.format(reasoning=trace, constraint=constraint)
                 result["no_meta_discussion"] = call(prompt)
         except Exception as exc:
             result["error"] = str(exc)
         return result
 
-    with ThreadPoolExecutor(max_workers=8) as pool, (out / "judgments.jsonl").open("a") as f:
-        for future in as_completed([pool.submit(one, row) for row in rows]):
-            result = future.result()
-            f.write(json.dumps(result) + "\n")
-            f.flush()
-            print(result, flush=True)
+    if getattr(args, "watch", False):
+        watch_judgments(out, existing, one, args.judge_workers)
+    else:
+        with ThreadPoolExecutor(max_workers=args.judge_workers) as pool, (out / "judgments.jsonl").open("a") as f:
+            for future in as_completed([pool.submit(one, row) for row in rows]):
+                result = future.result()
+                f.write(json.dumps(result) + "\n")
+                f.flush()
+                print({k:v for k,v in result.items() if k != "judge_calls"}, flush=True)
     summarize(out)
+
+
+def watch_judgments(out, existing, judge_one, workers):
+    """Follow completed-output appends without repeatedly scanning the journal."""
+    from collections import deque
+    from pilot_state import append_jsonl, write_json as durable_write_json
+    install_signal_handlers()
+    journal = out / "generations.jsonl"
+    journal.touch(exist_ok=True)
+    attempts = defaultdict(int)
+    scheduled = set(existing)
+    pending = deque()
+    def accept(row):
+        if row["mode"] != "baseline" and row["key"] not in scheduled:
+            scheduled.add(row["key"])
+            pending.append(row)
+    # Capture the offset first; appends during bootstrap are harmless duplicates.
+    with journal.open("rb") as source:
+        source.seek(0, 2)
+        for row in read_results(out):
+            accept(row)
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {}
+            while True:
+                while True:
+                    position = source.tell()
+                    line = source.readline()
+                    if not line or not line.endswith(b"\n"):
+                        source.seek(position)
+                        break
+                    accept(json.loads(line))
+                stopping = pause_requested(out)
+                while pending and len(futures) < workers and not stopping:
+                    row = pending.popleft()
+                    attempts[row["key"]] += 1
+                    futures[pool.submit(judge_one, row)] = row
+                if futures:
+                    done, _ = wait(futures, timeout=1, return_when=FIRST_COMPLETED)
+                    for future in done:
+                        row = futures.pop(future)
+                        result = future.result()
+                        append_jsonl(out / "judgments.jsonl", result)
+                        if result.get("error") and attempts[row["key"]] < 3 and not stopping:
+                            pending.append(row)
+                        elif not result.get("error"):
+                            existing.add(row["key"])
+                        print({k:v for k,v in result.items() if k != "judge_calls"}, flush=True)
+                else:
+                    if stopping:
+                        break
+                    if (out / "generation_complete.json").exists():
+                        # A completion marker is written only after all rows are durable.
+                        for row in read_results(out):
+                            accept(row)
+                        if not pending:
+                            break
+                    time.sleep(1)
+                if stopping and not futures:
+                    break
+    summarize(out)
+    if (out / "generation_complete.json").exists():
+        config = json.loads((out / "config.json").read_text())
+        expected = sum(n for m,n in config["expected_per_mode"].items() if m != "baseline")
+        if len(existing) != expected:
+            raise RuntimeError(f"Only {len(existing)}/{expected} question judgments succeeded")
+        durable_write_json(out / "grading_complete.json", {"judgments": len(existing), "completed_at_unix": time.time()})
 
 
 def main():
@@ -353,11 +457,13 @@ def main():
     parser.add_argument("--enforce-eager", action="store_true")
     parser.add_argument("--modes", nargs="+", choices=MODES)
     parser.add_argument("--judge-model", default="openai/gpt-5-mini")
+    parser.add_argument("--judge-workers", type=int, default=8)
+    parser.add_argument("--watch", action="store_true", help="Judge newly completed questions while GPU generation continues")
     args = parser.parse_args()
     if args.revision is None:
         args.revision = {MODEL: REVISION, NANBEIGE: NANBEIGE_REVISION, DORY: DORY_REVISION}[args.model]
     if args.model == NANBEIGE and args.output == ROOT / "results/gpqa30_seed42_steps4_pilot8192":
-        args.output = ROOT / "results/gpqa30_seed42_nanbeige42_pilot8192"
+        args.output = ROOT / f"results/gpqa30_seed42_nanbeige42_loops{args.loops}_pilot8192"
     if args.model == DORY and args.output == ROOT / "results/gpqa30_seed42_steps4_pilot8192":
         args.output = ROOT / f"results/gpqa30_seed42_dory_loops{args.loops}_pilot8192"
     if args.action == "generate" and args.full_dataset and not args.allow_full_run:
