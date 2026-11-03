@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-03 20:50 UTC",
+  "updated_utc": "2026-11-03 20:51 UTC",
   "dataset": "GPQA",
   "n_questions": 30,
   "seed": 42,
@@ -858,8 +858,8 @@
       "formal_macro_compliance": 0.0,
       "scored_constraint_modes": 8,
       "capped": 12,
-      "generation_seconds": 3546.685520333005,
-      "output_tokens_per_second": 313.15463229898035,
+      "generation_seconds": 3551.6885178249795,
+      "output_tokens_per_second": 312.71351483270223,
       "conditions": {
         "alternating_case": {
           "n": 11,

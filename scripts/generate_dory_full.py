@@ -19,7 +19,12 @@ from full_summary import summarize_full,metric_row
 def result_row(job,output,elapsed,batch_id):
     completion=output.outputs[0]
     raw=completion.text
-    reasoning,response,finished=split_thinking(raw)
+    if job.get('enable_thinking',True):
+        reasoning,response,finished=split_thinking(raw)
+    elif '</think>' in raw or '<think>' in raw:
+        reasoning,response,finished=split_thinking(raw)
+    else:
+        reasoning,response,finished='',raw,True
     response=response.replace('<|im_end|>','').strip()
     answer=extract_answer_from_response(LLMResponse(content=response))
     scope=job.get('constraint_space','reasoning')
@@ -65,7 +70,7 @@ def generate(args):
                 max_tokens=25000,max_model_len=plan['max_model_len'],dtype='bfloat16',kv_cache_dtype='auto',
                 max_num_seqs=args.max_num_seqs,admission_window=2*args.max_num_seqs,
                 max_num_batched_tokens=8192,gpu_memory_utilization=.95,
-                enable_prefix_caching=True,async_scheduling=True,enable_thinking=True,
+                enable_prefix_caching=True,async_scheduling=True,enable_thinking=plan.get('enable_thinking',True),
                 skip_special_tokens=False,scheduling='mixed_conditions',request_sha256=plan['request_sha256'],
                 judge_model=None if plan.get('no_llm_judge') else 'openai/gpt-5-mini',judge_max_completion_tokens=10000,meta_reasoning_character_limit=10000,
                 audit_summary_sha256=hashlib.sha256((ROOT/'results/dory_pipeline_audit/summary.json').read_bytes()).hexdigest(),
@@ -73,6 +78,7 @@ def generate(args):
                 answer_key_ambiguities=plan['answer_key_ambiguities'],
                 packages={p:importlib.metadata.version(p) for p in ['vllm','torch','transformers','pandas']},
                 gpu=subprocess.check_output(['nvidia-smi','--query-gpu=name,memory.total,driver_version','--format=csv,noheader'],text=True).strip())
+    if 'ablation' in plan:config['ablation']=plan['ablation']
     if 'constraint_space' in plan:
         config.update(constraint_space=plan['constraint_space'],no_llm_judge=True,
                       unassessed=['ignore_question compliance','meta-discussion exclusion'])

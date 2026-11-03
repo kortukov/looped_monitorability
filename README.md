@@ -138,3 +138,5 @@ state are in `results/dory_large_pilot25000/`, with a live report at
 `reports/dory_large_pilot25000.md`. Each of four settings has 300 requests,
 for 1,200 total. Completion is indicated by supervisor phase `complete`, not
 by launch. The older full evaluation remains paused using its per-run flags.
+
+The amended pilot inserts `output_no_thinking` at 2 and 4 loops after both original output-space settings and before reasoning-space settings (1,800 generations total). These ablations keep the output prompts, sample, and budget unchanged but use the tokenizer's `enable_thinking=False` closed `<think></think>` prefix. Generated text is treated as final output; tagged output reasoning is still requested and scored. Run `prepare` again to freeze the extra inputs. The one-time handoff script `scripts/continue_dory_ablation.py` waits for the earlier supervisor to release its lock and requires both original output completion markers and its exact temporary hold text before starting the amended sequence. Handoff status is saved in `results/dory_large_pilot25000/ablation_queue.json`.

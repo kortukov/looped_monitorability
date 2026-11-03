@@ -34,6 +34,19 @@ class FullResultTests(unittest.TestCase):
                      'thinking</think><output_reasoning>lowercase']:
             self.assertEqual(score(text)['compliance'],0)
 
+    def test_closed_thinking_prefix_treats_generated_text_as_final_response(self):
+        job=dict(key='lowercase_thinking:7',mode='lowercase_thinking',source_row_index=7,
+                 question='example',prompt='example',target='B',constraint_space='output',enable_thinking=False)
+        output=NS(outputs=[NS(text='<output_reasoning>lowercase proof</output_reasoning> ANSWER: B',
+                             token_ids=[1],finish_reason='stop',stop_reason=None)],prompt_token_ids=[2],metrics=None)
+        row=result_row(job,output,1,'batch')
+        self.assertTrue(row['correct']);self.assertEqual(row['compliance'],1)
+        self.assertEqual(row['reasoning'],'');self.assertTrue(row['thinking_finished'])
+        self.assertTrue(row['output_reasoning_tags_present'])
+        job['enable_thinking']=True
+        row=result_row(job,output,1,'batch')
+        self.assertFalse(row['thinking_finished']);self.assertIsNone(row['answer'])
+
     def test_prepared_full_requests_have_complete_coverage_and_upstream_ambiguity_resolution(self):
         path=ROOT/'results/dory_full_inputs/requests.jsonl'
         if not path.exists():self.skipTest('Run full preflight first')
