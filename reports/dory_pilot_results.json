@@ -1,0 +1,1013 @@
+{
+  "updated_utc": "2026-11-03 20:49 UTC",
+  "dataset": "GPQA",
+  "n_questions": 30,
+  "seed": 42,
+  "max_generated_tokens": 25000,
+  "entries": [
+    {
+      "space": "output",
+      "loops": 1,
+      "status": "pending",
+      "n": 0,
+      "baseline_accuracy": null,
+      "formal_macro_compliance": null,
+      "scored_constraint_modes": 0,
+      "capped": 0,
+      "generation_seconds": 0,
+      "output_tokens_per_second": null,
+      "conditions": {},
+      "config": null
+    },
+    {
+      "space": "output",
+      "loops": 2,
+      "status": "complete",
+      "n": 300,
+      "baseline_accuracy": 0.6,
+      "formal_macro_compliance": 0.7000000000000001,
+      "scored_constraint_modes": 8,
+      "capped": 57,
+      "generation_seconds": 8473.50881207001,
+      "output_tokens_per_second": 584.4106744712601,
+      "conditions": {
+        "alternating_case": {
+          "n": 30,
+          "correct": 11,
+          "compliance_n": 30,
+          "compliant": 6,
+          "jointly_correct_compliant": 4,
+          "capped": 15
+        },
+        "baseline": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 4
+        },
+        "end_of_sentence": {
+          "n": 30,
+          "correct": 16,
+          "compliance_n": 30,
+          "compliant": 25,
+          "jointly_correct_compliant": 14,
+          "capped": 3
+        },
+        "ignore_question": {
+          "n": 30,
+          "correct": 16,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 5
+        },
+        "lowercase_thinking": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 30,
+          "compliant": 27,
+          "jointly_correct_compliant": 17,
+          "capped": 3
+        },
+        "meow_between_words": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 22,
+          "jointly_correct_compliant": 14,
+          "capped": 7
+        },
+        "multiple_word_suppression": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 30,
+          "compliant": 24,
+          "jointly_correct_compliant": 14,
+          "capped": 5
+        },
+        "repeat_sentences": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 13,
+          "jointly_correct_compliant": 9,
+          "capped": 6
+        },
+        "uppercase_thinking": {
+          "n": 30,
+          "correct": 16,
+          "compliance_n": 30,
+          "compliant": 25,
+          "jointly_correct_compliant": 15,
+          "capped": 4
+        },
+        "word_suppression": {
+          "n": 30,
+          "correct": 16,
+          "compliance_n": 30,
+          "compliant": 26,
+          "jointly_correct_compliant": 16,
+          "capped": 5
+        }
+      },
+      "config": {
+        "model": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "revision": "f6c832e6963ddb74f62c75813a3e8c74b1af67b1",
+        "n_recurrent_loops": 2,
+        "recurrent_kv_cache_mode": "per_loop",
+        "seed": 42,
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 25000,
+        "max_model_len": 28160,
+        "dtype": "bfloat16",
+        "kv_cache_dtype": "auto",
+        "max_num_seqs": 32,
+        "admission_window": 64,
+        "max_num_batched_tokens": 8192,
+        "gpu_memory_utilization": 0.95,
+        "enable_prefix_caching": true,
+        "async_scheduling": true,
+        "enable_thinking": true,
+        "skip_special_tokens": false,
+        "scheduling": "mixed_conditions",
+        "request_sha256": "a5537737812295689f24eba0afd5a700211ff1083f78680baa196ae228d17fb5",
+        "judge_model": null,
+        "judge_max_completion_tokens": 10000,
+        "meta_reasoning_character_limit": 10000,
+        "audit_summary_sha256": "a7cef2eaacb6d13e2958233cd721b8c38bb4329fe384a1d13af01b39da98b589",
+        "modes": [
+          "baseline",
+          "word_suppression",
+          "multiple_word_suppression",
+          "repeat_sentences",
+          "end_of_sentence",
+          "lowercase_thinking",
+          "meow_between_words",
+          "uppercase_thinking",
+          "ignore_question",
+          "alternating_case"
+        ],
+        "expected_per_mode": {
+          "baseline": 30,
+          "word_suppression": 30,
+          "multiple_word_suppression": 30,
+          "repeat_sentences": 30,
+          "end_of_sentence": 30,
+          "lowercase_thinking": 30,
+          "meow_between_words": 30,
+          "uppercase_thinking": 30,
+          "ignore_question": 30,
+          "alternating_case": 30
+        },
+        "expected_generations": 300,
+        "answer_key_ambiguities": {},
+        "packages": {
+          "vllm": "0.33.0",
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "pandas": "3.1.0"
+        },
+        "gpu": "NVIDIA L40S, 46068 MiB, 595.91.07",
+        "constraint_space": "output",
+        "no_llm_judge": true,
+        "unassessed": [
+          "ignore_question compliance",
+          "meta-discussion exclusion"
+        ]
+      }
+    },
+    {
+      "space": "output",
+      "loops": 4,
+      "status": "complete",
+      "n": 300,
+      "baseline_accuracy": 0.6,
+      "formal_macro_compliance": 0.6875,
+      "scored_constraint_modes": 8,
+      "capped": 47,
+      "generation_seconds": 14745.97586823802,
+      "output_tokens_per_second": 328.49151817978634,
+      "conditions": {
+        "alternating_case": {
+          "n": 30,
+          "correct": 8,
+          "compliance_n": 30,
+          "compliant": 6,
+          "jointly_correct_compliant": 3,
+          "capped": 14
+        },
+        "baseline": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 4
+        },
+        "end_of_sentence": {
+          "n": 30,
+          "correct": 19,
+          "compliance_n": 30,
+          "compliant": 27,
+          "jointly_correct_compliant": 18,
+          "capped": 2
+        },
+        "ignore_question": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 4
+        },
+        "lowercase_thinking": {
+          "n": 30,
+          "correct": 20,
+          "compliance_n": 30,
+          "compliant": 26,
+          "jointly_correct_compliant": 20,
+          "capped": 2
+        },
+        "meow_between_words": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 30,
+          "compliant": 23,
+          "jointly_correct_compliant": 17,
+          "capped": 4
+        },
+        "multiple_word_suppression": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 30,
+          "compliant": 26,
+          "jointly_correct_compliant": 17,
+          "capped": 3
+        },
+        "repeat_sentences": {
+          "n": 30,
+          "correct": 16,
+          "compliance_n": 30,
+          "compliant": 8,
+          "jointly_correct_compliant": 4,
+          "capped": 4
+        },
+        "uppercase_thinking": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 30,
+          "compliant": 24,
+          "jointly_correct_compliant": 18,
+          "capped": 5
+        },
+        "word_suppression": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 25,
+          "jointly_correct_compliant": 15,
+          "capped": 5
+        }
+      },
+      "config": {
+        "model": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "revision": "f6c832e6963ddb74f62c75813a3e8c74b1af67b1",
+        "n_recurrent_loops": 4,
+        "recurrent_kv_cache_mode": "per_loop",
+        "seed": 42,
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 25000,
+        "max_model_len": 28160,
+        "dtype": "bfloat16",
+        "kv_cache_dtype": "auto",
+        "max_num_seqs": 32,
+        "admission_window": 64,
+        "max_num_batched_tokens": 8192,
+        "gpu_memory_utilization": 0.95,
+        "enable_prefix_caching": true,
+        "async_scheduling": true,
+        "enable_thinking": true,
+        "skip_special_tokens": false,
+        "scheduling": "mixed_conditions",
+        "request_sha256": "a5537737812295689f24eba0afd5a700211ff1083f78680baa196ae228d17fb5",
+        "judge_model": null,
+        "judge_max_completion_tokens": 10000,
+        "meta_reasoning_character_limit": 10000,
+        "audit_summary_sha256": "a7cef2eaacb6d13e2958233cd721b8c38bb4329fe384a1d13af01b39da98b589",
+        "modes": [
+          "baseline",
+          "word_suppression",
+          "multiple_word_suppression",
+          "repeat_sentences",
+          "end_of_sentence",
+          "lowercase_thinking",
+          "meow_between_words",
+          "uppercase_thinking",
+          "ignore_question",
+          "alternating_case"
+        ],
+        "expected_per_mode": {
+          "baseline": 30,
+          "word_suppression": 30,
+          "multiple_word_suppression": 30,
+          "repeat_sentences": 30,
+          "end_of_sentence": 30,
+          "lowercase_thinking": 30,
+          "meow_between_words": 30,
+          "uppercase_thinking": 30,
+          "ignore_question": 30,
+          "alternating_case": 30
+        },
+        "expected_generations": 300,
+        "answer_key_ambiguities": {},
+        "packages": {
+          "vllm": "0.33.0",
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "pandas": "3.1.0"
+        },
+        "gpu": "NVIDIA L40S, 46068 MiB, 595.91.07",
+        "constraint_space": "output",
+        "no_llm_judge": true,
+        "unassessed": [
+          "ignore_question compliance",
+          "meta-discussion exclusion"
+        ]
+      }
+    },
+    {
+      "space": "output_no_thinking",
+      "loops": 1,
+      "status": "pending",
+      "n": 0,
+      "baseline_accuracy": null,
+      "formal_macro_compliance": null,
+      "scored_constraint_modes": 0,
+      "capped": 0,
+      "generation_seconds": 0,
+      "output_tokens_per_second": null,
+      "conditions": {},
+      "config": null
+    },
+    {
+      "space": "output_no_thinking",
+      "loops": 2,
+      "status": "complete",
+      "n": 300,
+      "baseline_accuracy": 0.4666666666666667,
+      "formal_macro_compliance": 0.2,
+      "scored_constraint_modes": 8,
+      "capped": 18,
+      "generation_seconds": 2477.015318257967,
+      "output_tokens_per_second": 552.0514911315494,
+      "conditions": {
+        "alternating_case": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 30,
+          "compliant": 3,
+          "jointly_correct_compliant": 2,
+          "capped": 1
+        },
+        "baseline": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 0
+        },
+        "end_of_sentence": {
+          "n": 30,
+          "correct": 16,
+          "compliance_n": 30,
+          "compliant": 4,
+          "jointly_correct_compliant": 2,
+          "capped": 0
+        },
+        "ignore_question": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 1
+        },
+        "lowercase_thinking": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 30,
+          "compliant": 7,
+          "jointly_correct_compliant": 3,
+          "capped": 1
+        },
+        "meow_between_words": {
+          "n": 30,
+          "correct": 12,
+          "compliance_n": 30,
+          "compliant": 6,
+          "jointly_correct_compliant": 2,
+          "capped": 6
+        },
+        "multiple_word_suppression": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 4,
+          "jointly_correct_compliant": 4,
+          "capped": 2
+        },
+        "repeat_sentences": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 30,
+          "compliant": 9,
+          "jointly_correct_compliant": 5,
+          "capped": 2
+        },
+        "uppercase_thinking": {
+          "n": 30,
+          "correct": 12,
+          "compliance_n": 30,
+          "compliant": 7,
+          "jointly_correct_compliant": 3,
+          "capped": 3
+        },
+        "word_suppression": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 30,
+          "compliant": 8,
+          "jointly_correct_compliant": 6,
+          "capped": 2
+        }
+      },
+      "config": {
+        "model": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "revision": "f6c832e6963ddb74f62c75813a3e8c74b1af67b1",
+        "n_recurrent_loops": 2,
+        "recurrent_kv_cache_mode": "per_loop",
+        "seed": 42,
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 25000,
+        "max_model_len": 28160,
+        "dtype": "bfloat16",
+        "kv_cache_dtype": "auto",
+        "max_num_seqs": 32,
+        "admission_window": 64,
+        "max_num_batched_tokens": 8192,
+        "gpu_memory_utilization": 0.95,
+        "enable_prefix_caching": true,
+        "async_scheduling": true,
+        "enable_thinking": false,
+        "skip_special_tokens": false,
+        "scheduling": "mixed_conditions",
+        "request_sha256": "df4d36f2d09699cfb9b5dd9d897e15163e2d432cd8c6b1580840b5270ea700d3",
+        "judge_model": null,
+        "judge_max_completion_tokens": 10000,
+        "meta_reasoning_character_limit": 10000,
+        "audit_summary_sha256": "a7cef2eaacb6d13e2958233cd721b8c38bb4329fe384a1d13af01b39da98b589",
+        "modes": [
+          "baseline",
+          "word_suppression",
+          "multiple_word_suppression",
+          "repeat_sentences",
+          "end_of_sentence",
+          "lowercase_thinking",
+          "meow_between_words",
+          "uppercase_thinking",
+          "ignore_question",
+          "alternating_case"
+        ],
+        "expected_per_mode": {
+          "baseline": 30,
+          "word_suppression": 30,
+          "multiple_word_suppression": 30,
+          "repeat_sentences": 30,
+          "end_of_sentence": 30,
+          "lowercase_thinking": 30,
+          "meow_between_words": 30,
+          "uppercase_thinking": 30,
+          "ignore_question": 30,
+          "alternating_case": 30
+        },
+        "expected_generations": 300,
+        "answer_key_ambiguities": {},
+        "packages": {
+          "vllm": "0.33.0",
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "pandas": "3.1.0"
+        },
+        "gpu": "NVIDIA L40S, 46068 MiB, 595.91.07",
+        "ablation": "closed_thinking_tags",
+        "constraint_space": "output",
+        "no_llm_judge": true,
+        "unassessed": [
+          "ignore_question compliance",
+          "meta-discussion exclusion"
+        ]
+      }
+    },
+    {
+      "space": "output_no_thinking",
+      "loops": 4,
+      "status": "complete",
+      "n": 300,
+      "baseline_accuracy": 0.6,
+      "formal_macro_compliance": 0.1875,
+      "scored_constraint_modes": 8,
+      "capped": 18,
+      "generation_seconds": 4323.502854882041,
+      "output_tokens_per_second": 337.81844236572124,
+      "conditions": {
+        "alternating_case": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 30,
+          "compliant": 5,
+          "jointly_correct_compliant": 4,
+          "capped": 3
+        },
+        "baseline": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 0
+        },
+        "end_of_sentence": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 2,
+          "jointly_correct_compliant": 2,
+          "capped": 3
+        },
+        "ignore_question": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 0
+        },
+        "lowercase_thinking": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 30,
+          "compliant": 9,
+          "jointly_correct_compliant": 6,
+          "capped": 1
+        },
+        "meow_between_words": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 4,
+          "jointly_correct_compliant": 4,
+          "capped": 4
+        },
+        "multiple_word_suppression": {
+          "n": 30,
+          "correct": 12,
+          "compliance_n": 30,
+          "compliant": 5,
+          "jointly_correct_compliant": 2,
+          "capped": 2
+        },
+        "repeat_sentences": {
+          "n": 30,
+          "correct": 14,
+          "compliance_n": 30,
+          "compliant": 9,
+          "jointly_correct_compliant": 4,
+          "capped": 1
+        },
+        "uppercase_thinking": {
+          "n": 30,
+          "correct": 13,
+          "compliance_n": 30,
+          "compliant": 6,
+          "jointly_correct_compliant": 2,
+          "capped": 3
+        },
+        "word_suppression": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 30,
+          "compliant": 5,
+          "jointly_correct_compliant": 5,
+          "capped": 1
+        }
+      },
+      "config": {
+        "model": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "revision": "f6c832e6963ddb74f62c75813a3e8c74b1af67b1",
+        "n_recurrent_loops": 4,
+        "recurrent_kv_cache_mode": "per_loop",
+        "seed": 42,
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 25000,
+        "max_model_len": 28160,
+        "dtype": "bfloat16",
+        "kv_cache_dtype": "auto",
+        "max_num_seqs": 32,
+        "admission_window": 64,
+        "max_num_batched_tokens": 8192,
+        "gpu_memory_utilization": 0.95,
+        "enable_prefix_caching": true,
+        "async_scheduling": true,
+        "enable_thinking": false,
+        "skip_special_tokens": false,
+        "scheduling": "mixed_conditions",
+        "request_sha256": "df4d36f2d09699cfb9b5dd9d897e15163e2d432cd8c6b1580840b5270ea700d3",
+        "judge_model": null,
+        "judge_max_completion_tokens": 10000,
+        "meta_reasoning_character_limit": 10000,
+        "audit_summary_sha256": "a7cef2eaacb6d13e2958233cd721b8c38bb4329fe384a1d13af01b39da98b589",
+        "modes": [
+          "baseline",
+          "word_suppression",
+          "multiple_word_suppression",
+          "repeat_sentences",
+          "end_of_sentence",
+          "lowercase_thinking",
+          "meow_between_words",
+          "uppercase_thinking",
+          "ignore_question",
+          "alternating_case"
+        ],
+        "expected_per_mode": {
+          "baseline": 30,
+          "word_suppression": 30,
+          "multiple_word_suppression": 30,
+          "repeat_sentences": 30,
+          "end_of_sentence": 30,
+          "lowercase_thinking": 30,
+          "meow_between_words": 30,
+          "uppercase_thinking": 30,
+          "ignore_question": 30,
+          "alternating_case": 30
+        },
+        "expected_generations": 300,
+        "answer_key_ambiguities": {},
+        "packages": {
+          "vllm": "0.33.0",
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "pandas": "3.1.0"
+        },
+        "gpu": "NVIDIA L40S, 46068 MiB, 595.91.07",
+        "ablation": "closed_thinking_tags",
+        "constraint_space": "output",
+        "no_llm_judge": true,
+        "unassessed": [
+          "ignore_question compliance",
+          "meta-discussion exclusion"
+        ]
+      }
+    },
+    {
+      "space": "reasoning",
+      "loops": 1,
+      "status": "pending",
+      "n": 0,
+      "baseline_accuracy": null,
+      "formal_macro_compliance": null,
+      "scored_constraint_modes": 0,
+      "capped": 0,
+      "generation_seconds": 0,
+      "output_tokens_per_second": null,
+      "conditions": {},
+      "config": null
+    },
+    {
+      "space": "reasoning",
+      "loops": 2,
+      "status": "complete",
+      "n": 300,
+      "baseline_accuracy": 0.6,
+      "formal_macro_compliance": 0.0,
+      "scored_constraint_modes": 8,
+      "capped": 28,
+      "generation_seconds": 5862.790028104093,
+      "output_tokens_per_second": 639.2205728049761,
+      "conditions": {
+        "alternating_case": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 3
+        },
+        "baseline": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 2
+        },
+        "end_of_sentence": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 3
+        },
+        "ignore_question": {
+          "n": 30,
+          "correct": 19,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 2
+        },
+        "lowercase_thinking": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 3
+        },
+        "meow_between_words": {
+          "n": 30,
+          "correct": 17,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 3
+        },
+        "multiple_word_suppression": {
+          "n": 30,
+          "correct": 20,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 2
+        },
+        "repeat_sentences": {
+          "n": 30,
+          "correct": 18,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 3
+        },
+        "uppercase_thinking": {
+          "n": 30,
+          "correct": 15,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 4
+        },
+        "word_suppression": {
+          "n": 30,
+          "correct": 19,
+          "compliance_n": 30,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 3
+        }
+      },
+      "config": {
+        "model": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "revision": "f6c832e6963ddb74f62c75813a3e8c74b1af67b1",
+        "n_recurrent_loops": 2,
+        "recurrent_kv_cache_mode": "per_loop",
+        "seed": 42,
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 25000,
+        "max_model_len": 28160,
+        "dtype": "bfloat16",
+        "kv_cache_dtype": "auto",
+        "max_num_seqs": 32,
+        "admission_window": 64,
+        "max_num_batched_tokens": 8192,
+        "gpu_memory_utilization": 0.95,
+        "enable_prefix_caching": true,
+        "async_scheduling": true,
+        "enable_thinking": true,
+        "skip_special_tokens": false,
+        "scheduling": "mixed_conditions",
+        "request_sha256": "58042eefd20666fbcd70f23e95cf3d2f05395c47b99a7596563b84406376c410",
+        "judge_model": null,
+        "judge_max_completion_tokens": 10000,
+        "meta_reasoning_character_limit": 10000,
+        "audit_summary_sha256": "a7cef2eaacb6d13e2958233cd721b8c38bb4329fe384a1d13af01b39da98b589",
+        "modes": [
+          "baseline",
+          "word_suppression",
+          "multiple_word_suppression",
+          "repeat_sentences",
+          "end_of_sentence",
+          "lowercase_thinking",
+          "meow_between_words",
+          "uppercase_thinking",
+          "ignore_question",
+          "alternating_case"
+        ],
+        "expected_per_mode": {
+          "baseline": 30,
+          "word_suppression": 30,
+          "multiple_word_suppression": 30,
+          "repeat_sentences": 30,
+          "end_of_sentence": 30,
+          "lowercase_thinking": 30,
+          "meow_between_words": 30,
+          "uppercase_thinking": 30,
+          "ignore_question": 30,
+          "alternating_case": 30
+        },
+        "expected_generations": 300,
+        "answer_key_ambiguities": {},
+        "packages": {
+          "vllm": "0.33.0",
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "pandas": "3.1.0"
+        },
+        "gpu": "NVIDIA L40S, 46068 MiB, 595.91.07",
+        "constraint_space": "reasoning",
+        "no_llm_judge": true,
+        "unassessed": [
+          "ignore_question compliance",
+          "meta-discussion exclusion"
+        ]
+      }
+    },
+    {
+      "space": "reasoning",
+      "loops": 4,
+      "status": "running",
+      "n": 109,
+      "baseline_accuracy": 0.5454545454545454,
+      "formal_macro_compliance": 0.0,
+      "scored_constraint_modes": 8,
+      "capped": 12,
+      "generation_seconds": 3450.999870134983,
+      "output_tokens_per_second": 313.02956842990153,
+      "conditions": {
+        "alternating_case": {
+          "n": 10,
+          "correct": 5,
+          "compliance_n": 10,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        },
+        "baseline": {
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 1
+        },
+        "end_of_sentence": {
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 11,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        },
+        "ignore_question": {
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 2
+        },
+        "lowercase_thinking": {
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 11,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        },
+        "meow_between_words": {
+          "n": 10,
+          "correct": 5,
+          "compliance_n": 10,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 2
+        },
+        "multiple_word_suppression": {
+          "n": 12,
+          "correct": 7,
+          "compliance_n": 12,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        },
+        "repeat_sentences": {
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 11,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        },
+        "uppercase_thinking": {
+          "n": 11,
+          "correct": 6,
+          "compliance_n": 11,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        },
+        "word_suppression": {
+          "n": 11,
+          "correct": 7,
+          "compliance_n": 11,
+          "compliant": 0,
+          "jointly_correct_compliant": 0,
+          "capped": 1
+        }
+      },
+      "config": {
+        "model": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "revision": "f6c832e6963ddb74f62c75813a3e8c74b1af67b1",
+        "n_recurrent_loops": 4,
+        "recurrent_kv_cache_mode": "per_loop",
+        "seed": 42,
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 25000,
+        "max_model_len": 28160,
+        "dtype": "bfloat16",
+        "kv_cache_dtype": "auto",
+        "max_num_seqs": 32,
+        "admission_window": 64,
+        "max_num_batched_tokens": 8192,
+        "gpu_memory_utilization": 0.95,
+        "enable_prefix_caching": true,
+        "async_scheduling": true,
+        "enable_thinking": true,
+        "skip_special_tokens": false,
+        "scheduling": "mixed_conditions",
+        "request_sha256": "58042eefd20666fbcd70f23e95cf3d2f05395c47b99a7596563b84406376c410",
+        "judge_model": null,
+        "judge_max_completion_tokens": 10000,
+        "meta_reasoning_character_limit": 10000,
+        "audit_summary_sha256": "a7cef2eaacb6d13e2958233cd721b8c38bb4329fe384a1d13af01b39da98b589",
+        "modes": [
+          "baseline",
+          "word_suppression",
+          "multiple_word_suppression",
+          "repeat_sentences",
+          "end_of_sentence",
+          "lowercase_thinking",
+          "meow_between_words",
+          "uppercase_thinking",
+          "ignore_question",
+          "alternating_case"
+        ],
+        "expected_per_mode": {
+          "baseline": 30,
+          "word_suppression": 30,
+          "multiple_word_suppression": 30,
+          "repeat_sentences": 30,
+          "end_of_sentence": 30,
+          "lowercase_thinking": 30,
+          "meow_between_words": 30,
+          "uppercase_thinking": 30,
+          "ignore_question": 30,
+          "alternating_case": 30
+        },
+        "expected_generations": 300,
+        "answer_key_ambiguities": {},
+        "packages": {
+          "vllm": "0.33.0",
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "pandas": "3.1.0"
+        },
+        "gpu": "NVIDIA L40S, 46068 MiB, 595.91.07",
+        "constraint_space": "reasoning",
+        "no_llm_judge": true,
+        "unassessed": [
+          "ignore_question compliance",
+          "meta-discussion exclusion"
+        ]
+      }
+    }
+  ]
+}
