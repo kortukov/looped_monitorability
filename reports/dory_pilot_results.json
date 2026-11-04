@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-04 18:35 UTC",
+  "updated_utc": "2026-11-04 18:50 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -718,19 +718,19 @@
       "loops": 8,
       "sampling_seed": 42,
       "status": "running",
-      "n": 6,
-      "answer_parsed": 6,
-      "baseline_accuracy": 0.0,
+      "n": 10,
+      "answer_parsed": 10,
+      "baseline_accuracy": 0.5,
       "formal_macro_compliance": 1.0,
-      "scored_constraint_modes": 5,
+      "scored_constraint_modes": 7,
       "capped": 0,
-      "generation_seconds": 791.8927430870244,
-      "total_output_tokens": 40492,
-      "output_tokens_per_second": 51.133187358366996,
+      "generation_seconds": 1691.520657113986,
+      "total_output_tokens": 68470,
+      "output_tokens_per_second": 40.47837057859,
       "conditions": {
         "baseline": {
-          "n": 1,
-          "correct": 0,
+          "n": 2,
+          "correct": 1,
           "compliance_n": 0,
           "compliant": null,
           "jointly_correct_compliant": null,
@@ -744,7 +744,23 @@
           "jointly_correct_compliant": 0,
           "capped": 0
         },
+        "ignore_question": {
+          "n": 1,
+          "correct": 0,
+          "compliance_n": 0,
+          "compliant": null,
+          "jointly_correct_compliant": null,
+          "capped": 0
+        },
         "lowercase_thinking": {
+          "n": 1,
+          "correct": 0,
+          "compliance_n": 1,
+          "compliant": 1,
+          "jointly_correct_compliant": 0,
+          "capped": 0
+        },
+        "meow_between_words": {
           "n": 1,
           "correct": 0,
           "compliance_n": 1,
@@ -761,6 +777,14 @@
           "capped": 0
         },
         "repeat_sentences": {
+          "n": 1,
+          "correct": 0,
+          "compliance_n": 1,
+          "compliant": 1,
+          "jointly_correct_compliant": 0,
+          "capped": 0
+        },
+        "uppercase_thinking": {
           "n": 1,
           "correct": 0,
           "compliance_n": 1,
