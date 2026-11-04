@@ -89,3 +89,13 @@ reasoning,4,42,complete,multiple_word_suppression,30,19,30,0,0,2
 reasoning,4,42,complete,repeat_sentences,30,17,30,0,0,2
 reasoning,4,42,complete,uppercase_thinking,30,16,30,0,0,5
 reasoning,4,42,complete,word_suppression,30,20,30,0,0,2
+output_no_thinking,1,43,running,alternating_case,29,14,29,0,0,1
+output_no_thinking,1,43,running,baseline,28,12,0,,,2
+output_no_thinking,1,43,running,end_of_sentence,29,14,29,2,2,1
+output_no_thinking,1,43,running,ignore_question,27,10,0,,,2
+output_no_thinking,1,43,running,lowercase_thinking,29,17,29,1,1,1
+output_no_thinking,1,43,running,meow_between_words,28,11,28,3,3,2
+output_no_thinking,1,43,running,multiple_word_suppression,29,9,29,0,0,1
+output_no_thinking,1,43,running,repeat_sentences,27,12,27,2,1,1
+output_no_thinking,1,43,running,uppercase_thinking,28,11,28,0,0,2
+output_no_thinking,1,43,running,word_suppression,28,13,28,4,3,1
