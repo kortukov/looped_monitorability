@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-04 16:47 UTC",
+  "updated_utc": "2026-11-04 16:50 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -2951,7 +2951,8 @@
         44
       ],
       "completed_seeds": [
-        42
+        42,
+        43
       ],
       "status": "pending",
       "runs": [
@@ -3193,21 +3194,21 @@
           "space": "output_no_thinking",
           "loops": 2,
           "sampling_seed": 43,
-          "status": "running",
-          "n": 296,
+          "status": "complete",
+          "n": 300,
           "baseline_accuracy": 0.43333333333333335,
-          "formal_macro_compliance": 0.16522988505747127,
+          "formal_macro_compliance": 0.17083333333333334,
           "scored_constraint_modes": 8,
-          "capped": 10,
-          "generation_seconds": 1777.7761457890738,
-          "total_output_tokens": 1003127,
-          "output_tokens_per_second": 564.2594554865948,
+          "capped": 12,
+          "generation_seconds": 1925.555517132976,
+          "total_output_tokens": 1101484,
+          "output_tokens_per_second": 572.03440264347,
           "conditions": {
             "alternating_case": {
-              "n": 29,
+              "n": 30,
               "correct": 13,
-              "compliance_n": 29,
-              "compliant": 0,
+              "compliance_n": 30,
+              "compliant": 1,
               "jointly_correct_compliant": 0,
               "capped": 1
             },
@@ -3244,20 +3245,20 @@
               "capped": 1
             },
             "meow_between_words": {
-              "n": 29,
+              "n": 30,
               "correct": 15,
-              "compliance_n": 29,
+              "compliance_n": 30,
               "compliant": 3,
               "jointly_correct_compliant": 2,
-              "capped": 3
+              "capped": 4
             },
             "multiple_word_suppression": {
-              "n": 29,
+              "n": 30,
               "correct": 12,
-              "compliance_n": 29,
+              "compliance_n": 30,
               "compliant": 6,
               "jointly_correct_compliant": 4,
-              "capped": 1
+              "capped": 2
             },
             "repeat_sentences": {
               "n": 30,
@@ -3268,10 +3269,10 @@
               "capped": 0
             },
             "uppercase_thinking": {
-              "n": 29,
+              "n": 30,
               "correct": 16,
-              "compliance_n": 29,
-              "compliant": 10,
+              "compliance_n": 30,
+              "compliant": 11,
               "jointly_correct_compliant": 8,
               "capped": 1
             },
