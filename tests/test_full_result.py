@@ -47,6 +47,26 @@ class FullResultTests(unittest.TestCase):
         row=result_row(job,output,1,'batch')
         self.assertFalse(row['thinking_finished']);self.assertIsNone(row['answer'])
 
+    def test_answer_first_grades_whole_final_response_without_tags(self):
+        job=dict(key='lowercase_thinking:7',mode='lowercase_thinking',source_row_index=7,
+                 question='example',prompt='example',target='B',constraint_space='output_plain',enable_thinking=False)
+        def score(text):
+            output=NS(outputs=[NS(text=text,token_ids=[1],finish_reason='stop',stop_reason=None)],
+                      prompt_token_ids=[2],metrics=None)
+            return result_row(job,output,1,'batch')
+        row=score('b. all lowercase explanation')
+        self.assertEqual(row['compliance'],1)
+        self.assertEqual(row['controlled_text'],row['response'])
+        self.assertIsNone(row['output_reasoning_tags_present'])
+        # Preserve the released extractor: an initial plain letter need not parse.
+        self.assertIsNone(row['answer'])
+        row=score('ANSWER: B\n<output_reasoning>all lowercase</output_reasoning>')
+        self.assertEqual(row['compliance'],0);self.assertTrue(row['correct'])
+        job['enable_thinking']=True
+        row=score('UPPERCASE hidden thought</think>b. all lowercase explanation')
+        self.assertEqual(row['compliance'],1)
+        self.assertNotIn('UPPERCASE',row['controlled_text'])
+
     def test_prepared_full_requests_have_complete_coverage_and_upstream_ambiguity_resolution(self):
         path=ROOT/'results/dory_full_inputs/requests.jsonl'
         if not path.exists():self.skipTest('Run full preflight first')

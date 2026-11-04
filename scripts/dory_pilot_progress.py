@@ -13,7 +13,8 @@ import subprocess
 from pilot_state import ROOT,read_results,write_json
 
 BASE=ROOT/'results/dory_large_pilot25000'
-FILES=['reports/dory_pilot_results.md','reports/dory_pilot_results.csv','reports/dory_pilot_results.json']
+FILES=['reports/dory_pilot_results.md','reports/dory_pilot_results.csv','reports/dory_pilot_results.json',
+       'reports/dory_answer_first_results.md','reports/dory_answer_first_results.csv','reports/dory_answer_first_results.json']
 SPACES=['output','output_no_thinking','reasoning']
 LABELS={'output':'Output, thinking on','output_no_thinking':'Output, thinking off','reasoning':'Thinking trace'}
 SAMPLING_SEEDS=[42,43,44]
@@ -38,7 +39,7 @@ def summarize_run(out,space,loops,seed):
     if not manifest.exists():manifest=out.parent/f'{space}_inputs/sample_manifest.json'
     return dict(space=space,loops=loops,sampling_seed=seed,
         status='complete' if done else 'running' if rows or any(s['status']=='running' for s in states) else 'pending',
-        n=len(rows),baseline_accuracy=base['correct']/base['n'] if base else None,
+        n=len(rows),answer_parsed=sum(r.get('answer') is not None for r in rows),baseline_accuracy=base['correct']/base['n'] if base else None,
         formal_macro_compliance=statistics.mean(scored) if scored else None,
         scored_constraint_modes=len(scored),capped=sum(r['finish_reason']=='length' for r in rows),
         generation_seconds=seconds,total_output_tokens=sum(r['generated_tokens'] for r in rows),
@@ -97,6 +98,8 @@ def build():
 How do loop count and disabling thinking affect Dory's accuracy and controllability?
 
 # Setup
+[Exact prompt templates](dory_prompt_templates.md) · [Answer-first comparison](dory_answer_first_results.md) · [Report index](README.md)
+
 30 GPQA questions per sampling seed; baseline + nine constraints. Dory BF16 (`f6c832e`), original greedy decoding, **25,000-token limit**, one L40S (32 active sequences; 16 at 8 loops). Output “thinking off” uses a closed `<think></think>` prefix. Its **1/2-loop rows use sampling seeds 42, 43, 44**, paired across loop counts; other rows use seed 42. Generation seed stays 42.
 
 # Factual Observations
@@ -125,6 +128,8 @@ The completed seed-42 runs show much higher formal compliance in written output 
 [Per-seed constraint counts (CSV)](dory_pilot_results.csv) · [Metrics, SDs, and configurations (JSON)](dory_pilot_results.json)
 '''
     (ROOT/FILES[0]).write_text(text)
+    from report_dory_answer_first import build_report
+    build_report()
     return snapshot
 
 

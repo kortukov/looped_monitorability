@@ -45,7 +45,7 @@ def main():
                             generation_seconds=seconds, total_output_tokens=round(tokens),
                             mean_generated_tokens=tokens/120, tokens_per_second=tokens/seconds,
                             config=config, manifest=manifest, directory=directory.name))
-    reports = ROOT / 'reports'
+    reports = ROOT / 'reports/archive/timing8192'
     fields = [k for k in records[0] if k not in ('config', 'manifest', 'directory')]
     with (reports / 'gpqa_requested_pilots_comparison.csv').open('w') as f:
         writer = csv.DictWriter(f, fieldnames=fields)
@@ -83,7 +83,7 @@ def main():
     dory = {r['loops']: r for r in records if r['model'] == 'Dory'}
     if dory[2]['baseline_accuracy'] == dory[4]['baseline_accuracy']:
         changes.append(f"Dory at two and four loops had equal baseline accuracy on this sample, while full-pilot generation took {dory[2]['generation_seconds']/60:.1f} and {dory[4]['generation_seconds']/60:.1f} minutes respectively.")
-    provenance = '\n'.join(f"- [{r['model']}, {r['loops']} loop{'s' if r['loops'] != 1 else ''}](gpqa_{'nanbeige42' if r['model'] == 'Nanbeige' else 'dory'}_loops{r['loops']}_pilot.md): revision `{r['config']['revision']}`, vLLM {r['config']['packages']['vllm']}; [configuration](../results/{r['directory']}/config.json), [summary](../results/{r['directory']}/summary.json), effective model configuration and per-question outputs alongside them." for r in records)
+    provenance = '\n'.join(f"- [{r['model']}, {r['loops']} loop{'s' if r['loops'] != 1 else ''}](gpqa_{'nanbeige42' if r['model'] == 'Nanbeige' else 'dory'}_loops{r['loops']}_pilot.md): revision `{r['config']['revision']}`, vLLM {r['config']['packages']['vllm']}; [configuration](../../../results/{r['directory']}/config.json), [summary](../../../results/{r['directory']}/summary.json), effective model configuration and per-question outputs alongside them." for r in records)
     text = f'''# Research Question
 
 How do recurrence depth, GPQA accuracy, three-control CoT compliance, and runtime compare for Nanbeige at 1/2 loops and Dory at 1/2/4 loops?

@@ -59,16 +59,16 @@ Live report; coverage below distinguishes partial from complete conditions. Accu
 | reasoning | 2 | end_of_sentence | 30/30 | 60.0% | 0.0% | 3 |
 | reasoning | 2 | meow_between_words | 30/30 | 56.7% | 0.0% | 3 |
 | reasoning | 2 | repeat_sentences | 30/30 | 60.0% | 0.0% | 3 |
-| reasoning | 4 | baseline | 16/30 | 62.5% | — | 1 |
-| reasoning | 4 | lowercase_thinking | 16/30 | 62.5% | 0.0% | 1 |
-| reasoning | 4 | ignore_question | 17/30 | 58.8% | unassessed | 3 |
-| reasoning | 4 | word_suppression | 17/30 | 70.6% | 0.0% | 1 |
-| reasoning | 4 | multiple_word_suppression | 16/30 | 62.5% | 0.0% | 1 |
-| reasoning | 4 | uppercase_thinking | 15/30 | 53.3% | 0.0% | 2 |
-| reasoning | 4 | meow_between_words | 16/30 | 62.5% | 0.0% | 2 |
-| reasoning | 4 | alternating_case | 16/30 | 56.2% | 0.0% | 2 |
-| reasoning | 4 | end_of_sentence | 16/30 | 62.5% | 0.0% | 1 |
-| reasoning | 4 | repeat_sentences | 16/30 | 62.5% | 0.0% | 1 |
+| reasoning | 4 | baseline | 30/30 | 60.0% | — | 3 |
+| reasoning | 4 | lowercase_thinking | 30/30 | 60.0% | 0.0% | 3 |
+| reasoning | 4 | ignore_question | 30/30 | 60.0% | unassessed | 5 |
+| reasoning | 4 | word_suppression | 30/30 | 66.7% | 0.0% | 2 |
+| reasoning | 4 | multiple_word_suppression | 30/30 | 63.3% | 0.0% | 2 |
+| reasoning | 4 | uppercase_thinking | 30/30 | 53.3% | 0.0% | 5 |
+| reasoning | 4 | meow_between_words | 30/30 | 60.0% | 0.0% | 3 |
+| reasoning | 4 | alternating_case | 30/30 | 53.3% | 0.0% | 4 |
+| reasoning | 4 | end_of_sentence | 30/30 | 53.3% | 0.0% | 3 |
+| reasoning | 4 | repeat_sentences | 30/30 | 56.7% | 0.0% | 2 |
 
 | Space | Loops | Generation seconds | Output tokens/s |
 |---|---:|---:|---:|
@@ -77,7 +77,7 @@ Live report; coverage below distinguishes partial from complete conditions. Accu
 | output_no_thinking | 2 | 2477.0 | 552.1 |
 | output_no_thinking | 4 | 4323.5 | 337.8 |
 | reasoning | 2 | 5862.8 | 639.2 |
-| reasoning | 4 | 5396.9 | 332.9 |
+| reasoning | 4 | 10492.9 | 353.5 |
 
 # Message
 Interpret differences only after checking coverage and truncation. Formal compliance is distinct from semantic compliance and correct problem solving. This pilot cannot establish performance on the full GPQA dataset.

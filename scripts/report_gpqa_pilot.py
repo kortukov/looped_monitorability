@@ -43,7 +43,7 @@ def main():
         raise ValueError("Wait until all 120 pilot generations are saved")
     if any(modes[m]["compliance_n"] != 30 or modes[m]["compliance_without_meta_rate"] is None for m in MODES[1:]):
         raise ValueError("Wait until all compliance/meta-discussion judgments finish")
-    reports = ROOT / "reports"
+    reports = ROOT / "reports/archive/timing8192"
     figures = reports / "figures"
     figures.mkdir(parents=True, exist_ok=True)
     figure_path = figures / f"{stem}.png"
@@ -101,7 +101,7 @@ With {recurrence}, how accurately does {name} answer GPQA, and how well does it 
 
 The figure shows the table's accuracy and compliance rates; error bars are 95% Wilson intervals (30 questions per condition). Compliance is scored regardless of answer correctness. The macro-average over these three easy constraints is **{macro:.1%}**, or **{strict:.1%}** excluding meta-discussion; this is not the paper's nine-constraint aggregate. **{joint}/90** controlled generations are both compliant and correct. **{truncated}/120** generations hit the token limit; **{missing}/120** have no extracted final answer and count as incorrect.
 
-Generation took **{total_seconds/60:.1f} minutes** at **{total_tokens/total_seconds:.1f} aggregate output tokens/s**, excluding model setup ({startup/60:.1f} minutes) and API judging; timing includes {interrupted} interrupted generation batches. [Raw summary](../results/{args.results.name}/summary.json) · [Configuration](../results/{args.results.name}/config.json).
+Generation took **{total_seconds/60:.1f} minutes** at **{total_tokens/total_seconds:.1f} aggregate output tokens/s**, excluding model setup ({startup/60:.1f} minutes) and API judging; timing includes {interrupted} interrupted generation batches. [Raw summary](../../../results/{args.results.name}/summary.json) · [Configuration](../../../results/{args.results.name}/config.json).
 
 # Message
 

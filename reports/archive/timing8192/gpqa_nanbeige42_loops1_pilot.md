@@ -19,7 +19,7 @@ With 1 loop, how accurately does Nanbeige4.2-3B answer GPQA, and how well does i
 
 The figure shows the table's accuracy and compliance rates; error bars are 95% Wilson intervals (30 questions per condition). Compliance is scored regardless of answer correctness. The macro-average over these three easy constraints is **37.8%**, or **35.6%** excluding meta-discussion; this is not the paper's nine-constraint aggregate. **0/90** controlled generations are both compliant and correct. **120/120** generations hit the token limit; **120/120** have no extracted final answer and count as incorrect.
 
-Generation took **35.3 minutes** at **464.2 aggregate output tokens/s**, excluding model setup (0.6 minutes) and API judging; timing includes 1 interrupted generation batches. [Raw summary](../results/gpqa30_seed42_nanbeige42_loops1_pilot8192/summary.json) · [Configuration](../results/gpqa30_seed42_nanbeige42_loops1_pilot8192/config.json).
+Generation took **35.3 minutes** at **464.2 aggregate output tokens/s**, excluding model setup (0.6 minutes) and API judging; timing includes 1 interrupted generation batches. [Raw summary](../../../results/gpqa30_seed42_nanbeige42_loops1_pilot8192/summary.json) · [Configuration](../../../results/gpqa30_seed42_nanbeige42_loops1_pilot8192/config.json).
 
 # Message
 

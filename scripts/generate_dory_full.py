@@ -28,7 +28,7 @@ def result_row(job,output,elapsed,batch_id):
     response=response.replace('<|im_end|>','').strip()
     answer=extract_answer_from_response(LLMResponse(content=response))
     scope=job.get('constraint_space','reasoning')
-    controlled=reasoning
+    controlled=response if scope=='output_plain' else reasoning
     tags_present=None
     if scope=='output' and job['mode']!='baseline':
         match=re.search(r'<output_reasoning>(.*?)</output_reasoning>',response,re.DOTALL)
@@ -78,6 +78,7 @@ def generate(args):
                 answer_key_ambiguities=plan['answer_key_ambiguities'],
                 packages={p:importlib.metadata.version(p) for p in ['vllm','torch','transformers','pandas']},
                 gpu=subprocess.check_output(['nvidia-smi','--query-gpu=name,memory.total,driver_version','--format=csv,noheader'],text=True).strip())
+    if 'prompt_variant' in plan:config['prompt_variant']=plan['prompt_variant']
     if 'sampling_seed' in plan:config['sampling_seed']=plan['sampling_seed']
     if 'ablation' in plan:config['ablation']=plan['ablation']
     if 'constraint_space' in plan:

@@ -61,36 +61,9 @@ def worker(args):
 
 
 def report():
-    rows=[]
-    for space in ['output','output_no_thinking','reasoning']:
-        for loops in [2,4]:
-            out=BASE/f'{space}_loops{loops}'
-            if not (out/'summary.json').exists():continue
-            s=json.loads((out/'summary.json').read_text())
-            for mode,v in s['per_mode'].items():
-                c='unassessed' if v['compliance_rate'] is None else f"{100*v['compliance_rate']:.1f}%"
-                if mode=='baseline':c='—'
-                rows.append(f"| {space} | {loops} | {mode} | {v['n']}/30 | {100*v['accuracy']:.1f}% | {c} | {v['truncated']} |")
-    text='''# Research Question
-How does Dory perform on 30 shared GPQA questions with nine output-space and reasoning-space controls at 2 and 4 loops, including output controls with thinking disabled?
-
-# Setup
-Pinned Dory BF16 revision f6c832e6963ddb74f62c75813a3e8c74b1af67b1; same seed-42 questions as the earlier pilot. Each setting includes baseline plus nine controls (300 generations). Original CoTControl prompts and greedy decoding, temperature 0, top-p 1, 25,000 generated tokens plus full prompt context. BF16 weights/cache, per-loop KV, 32 active sequences, prefix caching and async scheduling, one NVIDIA L40S. Output-space prompts use upstream `non_reasoning=True` while Dory thinking remains enabled; compliance is scored only inside closed `<output_reasoning>` tags in the final output. Missing tags fail structural compliance. The output_no_thinking ablation uses identical output-control prompts with enable_thinking=False, so the assistant prefix ends with <think></think>; generated text is scored as the final response without requiring another closing thinking tag. Order: output 2/4, output_no_thinking 2/4, then reasoning 2/4. Reasoning-space scoring uses the thinking trace. No LLM judge or API calls.
-
-# Factual Observations
-Live report; coverage below distinguishes partial from complete conditions. Accuracy counts missing answers as incorrect. Compliance includes incorrect/truncated generations. Ignore-question compliance and exclusion of meta-discussion are unassessed, requiring semantic review. No nine-constraint aggregate is claimed. Per-setting runtime and aggregate token throughput are in the adjacent summary table.
-
-| Space | Loops | Condition | Completed | Accuracy | Formal compliance | Capped |
-|---|---:|---|---:|---:|---:|---:|
-'''+ '\n'.join(rows)+'\n\n| Space | Loops | Generation seconds | Output tokens/s |\n|---|---:|---:|---:|\n'
-    for space in ['output','output_no_thinking','reasoning']:
-        for loops in [2,4]:
-            path=BASE/f'{space}_loops{loops}/summary.json'
-            if path.exists():
-                s=json.loads(path.read_text()); rate=s['aggregate_tokens_per_second']
-                text+=f"| {space} | {loops} | {s['total_generation_seconds']:.1f} | {rate:.1f} |\n" if rate else f'| {space} | {loops} | 0 | — |\n'
-    text+='\n# Message\nInterpret differences only after checking coverage and truncation. Formal compliance is distinct from semantic compliance and correct problem solving. This pilot cannot establish performance on the full GPQA dataset.\n'
-    (ROOT/'reports/dory_large_pilot25000.md').write_text(text)
+    # Keep one canonical live report; older snapshots live under reports/archive.
+    from dory_pilot_progress import build
+    return build()
 
 
 def supervise():
