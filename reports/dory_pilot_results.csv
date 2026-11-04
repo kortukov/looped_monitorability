@@ -32,13 +32,13 @@ output,4,42,complete,word_suppression,30,15,30,25,15,5
 output,8,42,running,alternating_case,16,4,16,3,2,9
 output,8,42,running,baseline,18,11,0,,,2
 output,8,42,running,end_of_sentence,17,10,17,15,10,2
-output,8,42,running,ignore_question,16,8,0,,,4
+output,8,42,running,ignore_question,17,9,0,,,4
 output,8,42,running,lowercase_thinking,17,10,17,15,10,2
 output,8,42,running,meow_between_words,17,10,17,14,9,2
-output,8,42,running,multiple_word_suppression,16,10,16,14,10,1
-output,8,42,running,repeat_sentences,17,10,17,8,5,2
+output,8,42,running,multiple_word_suppression,17,10,17,14,10,2
+output,8,42,running,repeat_sentences,18,10,18,8,5,2
 output,8,42,running,uppercase_thinking,17,11,17,15,10,1
-output,8,42,running,word_suppression,17,10,17,15,10,2
+output,8,42,running,word_suppression,18,11,18,16,11,2
 output_no_thinking,1,42,complete,alternating_case,30,11,30,1,0,3
 output_no_thinking,1,42,complete,baseline,30,15,0,,,1
 output_no_thinking,1,42,complete,end_of_sentence,30,13,30,2,2,1
