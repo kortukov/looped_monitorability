@@ -119,3 +119,13 @@ output_no_thinking,2,43,complete,multiple_word_suppression,30,12,30,6,4,2
 output_no_thinking,2,43,complete,repeat_sentences,30,11,30,5,2,0
 output_no_thinking,2,43,complete,uppercase_thinking,30,16,30,11,8,1
 output_no_thinking,2,43,complete,word_suppression,30,13,30,5,3,1
+output_no_thinking,2,44,running,alternating_case,13,6,13,1,1,0
+output_no_thinking,2,44,running,baseline,11,6,0,,,0
+output_no_thinking,2,44,running,end_of_sentence,14,5,14,2,0,0
+output_no_thinking,2,44,running,ignore_question,10,7,0,,,0
+output_no_thinking,2,44,running,lowercase_thinking,9,3,9,2,2,0
+output_no_thinking,2,44,running,meow_between_words,12,5,12,2,2,0
+output_no_thinking,2,44,running,multiple_word_suppression,13,7,13,2,2,0
+output_no_thinking,2,44,running,repeat_sentences,13,8,13,4,4,0
+output_no_thinking,2,44,running,uppercase_thinking,10,5,10,4,2,0
+output_no_thinking,2,44,running,word_suppression,14,6,14,1,1,0
