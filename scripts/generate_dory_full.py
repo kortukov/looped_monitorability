@@ -78,6 +78,7 @@ def generate(args):
                 answer_key_ambiguities=plan['answer_key_ambiguities'],
                 packages={p:importlib.metadata.version(p) for p in ['vllm','torch','transformers','pandas']},
                 gpu=subprocess.check_output(['nvidia-smi','--query-gpu=name,memory.total,driver_version','--format=csv,noheader'],text=True).strip())
+    if 'sampling_seed' in plan:config['sampling_seed']=plan['sampling_seed']
     if 'ablation' in plan:config['ablation']=plan['ablation']
     if 'constraint_space' in plan:
         config.update(constraint_space=plan['constraint_space'],no_llm_judge=True,
