@@ -32,9 +32,9 @@ output,4,42,complete,word_suppression,30,15,30,25,15,5
 output,8,42,running,alternating_case,15,3,15,3,2,9
 output,8,42,running,baseline,16,9,0,,,2
 output,8,42,running,end_of_sentence,16,9,16,14,9,2
-output,8,42,running,ignore_question,15,7,0,,,4
-output,8,42,running,lowercase_thinking,15,8,15,13,8,2
-output,8,42,running,meow_between_words,15,9,15,13,8,1
+output,8,42,running,ignore_question,16,8,0,,,4
+output,8,42,running,lowercase_thinking,16,9,16,14,9,2
+output,8,42,running,meow_between_words,16,10,16,14,9,1
 output,8,42,running,multiple_word_suppression,16,10,16,14,10,1
 output,8,42,running,repeat_sentences,16,9,16,7,4,2
 output,8,42,running,uppercase_thinking,16,10,16,14,9,1
