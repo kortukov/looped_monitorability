@@ -7,14 +7,14 @@ How do loop count and disabling thinking affect Dory's accuracy and controllabil
 30 GPQA questions per sampling seed; baseline + nine constraints. Dory BF16 (`f6c832e`), original greedy decoding, **25,000-token limit**, one L40S (32 active sequences; 16 at 8 loops). Output “thinking off” uses a closed `<think></think>` prefix. Its **1/2-loop rows use sampling seeds 42, 43, 44**, paired across loop counts; other rows use seed 42. Generation seed stays 42.
 
 # Factual Observations
-Updated **2026-11-04 21:20 UTC**. Three-seed scores show **mean (± sample SD, percentage points)** only once all three seeds finish; while pending, * marks the original seed-42 score. SD measures variation across question samples, not a confidence interval.
+Updated **2026-11-04 21:35 UTC**. Three-seed scores show **mean (± sample SD, percentage points)** only once all three seeds finish; while pending, * marks the original seed-42 score. SD measures variation across question samples, not a confidence interval.
 
 | Setup | Loops | Status | Baseline accuracy | Formal compliance | Capped | Time | Tokens/s |
 |---|---:|---|---:|---:|---:|---:|---:|
 | Output, thinking on | 1 | Complete | 60.0% | 68.8% | 56/300 | 93 min | 902 |
 | Output, thinking on | 2 | Complete | 60.0% | 70.0% | 57/300 | 141 min | 584 |
 | Output, thinking on | 4 | Complete | 60.0% | 68.8% | 47/300 | 246 min | 328 |
-| Output, thinking on | 8 | Running (92/300) | — | — | — | — | — |
+| Output, thinking on | 8 | Running (101/300) | — | — | — | — | — |
 | Output, thinking off | 1 | Complete, 3 seeds | 46.7% (± 3.3) | 11.8% (± 6.9) | 79/900 | 85 min | 849 |
 | Output, thinking off | 2 | Complete, 3 seeds | 50.0% (± 8.8) | 19.9% (± 2.7) | 50/900 | 125 min | 571 |
 | Output, thinking off | 4 | Complete | 60.0% | 18.8% | 18/300 | 72 min | 338 |
