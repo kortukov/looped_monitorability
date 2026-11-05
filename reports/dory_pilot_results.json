@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 20:48 UTC",
+  "updated_utc": "2026-11-05 21:03 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -5307,95 +5307,95 @@
           "loops": 8,
           "sampling_seed": 43,
           "status": "running",
-          "n": 83,
-          "answer_parsed": 83,
-          "baseline_accuracy": 0.6666666666666666,
-          "formal_macro_compliance": 0.1202876984126984,
+          "n": 142,
+          "answer_parsed": 137,
+          "baseline_accuracy": 0.6153846153846154,
+          "formal_macro_compliance": 0.10219207875457875,
           "scored_constraint_modes": 8,
-          "capped": 0,
-          "generation_seconds": 2650.963340957067,
-          "total_output_tokens": 178200,
-          "output_tokens_per_second": 67.22084656804992,
+          "capped": 7,
+          "generation_seconds": 3552.060366263031,
+          "total_output_tokens": 412322,
+          "output_tokens_per_second": 116.07967136937657,
           "conditions": {
             "alternating_case": {
-              "n": 8,
-              "correct": 6,
-              "compliance_n": 8,
+              "n": 14,
+              "correct": 10,
+              "compliance_n": 14,
               "compliant": 1,
               "jointly_correct_compliant": 1,
               "capped": 0
             },
             "baseline": {
-              "n": 9,
-              "correct": 6,
+              "n": 13,
+              "correct": 8,
               "compliance_n": 0,
               "compliant": null,
               "jointly_correct_compliant": null,
-              "capped": 0
+              "capped": 1
             },
             "end_of_sentence": {
-              "n": 8,
-              "correct": 6,
-              "compliance_n": 8,
-              "compliant": 0,
-              "jointly_correct_compliant": 0,
-              "capped": 0
+              "n": 16,
+              "correct": 11,
+              "compliance_n": 16,
+              "compliant": 1,
+              "jointly_correct_compliant": 1,
+              "capped": 1
             },
             "ignore_question": {
-              "n": 8,
-              "correct": 6,
+              "n": 12,
+              "correct": 8,
               "compliance_n": 0,
               "compliant": null,
               "jointly_correct_compliant": null,
               "capped": 0
             },
             "lowercase_thinking": {
-              "n": 8,
-              "correct": 6,
-              "compliance_n": 8,
+              "n": 13,
+              "correct": 8,
+              "compliance_n": 13,
               "compliant": 2,
               "jointly_correct_compliant": 2,
-              "capped": 0
+              "capped": 1
             },
             "meow_between_words": {
-              "n": 7,
-              "correct": 6,
-              "compliance_n": 7,
-              "compliant": 1,
-              "jointly_correct_compliant": 1,
-              "capped": 0
+              "n": 16,
+              "correct": 10,
+              "compliance_n": 16,
+              "compliant": 2,
+              "jointly_correct_compliant": 2,
+              "capped": 2
             },
             "multiple_word_suppression": {
-              "n": 9,
-              "correct": 6,
-              "compliance_n": 9,
-              "compliant": 0,
-              "jointly_correct_compliant": 0,
+              "n": 15,
+              "correct": 9,
+              "compliance_n": 15,
+              "compliant": 1,
+              "jointly_correct_compliant": 1,
               "capped": 0
             },
             "repeat_sentences": {
-              "n": 9,
-              "correct": 7,
-              "compliance_n": 9,
+              "n": 14,
+              "correct": 9,
+              "compliance_n": 14,
               "compliant": 1,
               "jointly_correct_compliant": 1,
-              "capped": 0
+              "capped": 1
             },
             "uppercase_thinking": {
-              "n": 8,
-              "correct": 6,
-              "compliance_n": 8,
+              "n": 14,
+              "correct": 9,
+              "compliance_n": 14,
               "compliant": 0,
               "jointly_correct_compliant": 0,
               "capped": 0
             },
             "word_suppression": {
-              "n": 9,
-              "correct": 6,
-              "compliance_n": 9,
-              "compliant": 3,
+              "n": 15,
+              "correct": 8,
+              "compliance_n": 15,
+              "compliant": 4,
               "jointly_correct_compliant": 2,
-              "capped": 0
+              "capped": 1
             }
           },
           "config": {
