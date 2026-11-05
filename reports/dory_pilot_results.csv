@@ -69,6 +69,16 @@ output_no_thinking,4,42,complete,multiple_word_suppression,30,12,30,5,2,2
 output_no_thinking,4,42,complete,repeat_sentences,30,14,30,9,4,1
 output_no_thinking,4,42,complete,uppercase_thinking,30,13,30,6,2,3
 output_no_thinking,4,42,complete,word_suppression,30,17,30,5,5,1
+output_no_thinking,8,42,running,alternating_case,2,1,2,0,0,0
+output_no_thinking,8,42,running,baseline,2,0,0,,,0
+output_no_thinking,8,42,running,end_of_sentence,2,1,2,0,0,0
+output_no_thinking,8,42,running,ignore_question,2,1,0,,,0
+output_no_thinking,8,42,running,lowercase_thinking,2,1,2,0,0,0
+output_no_thinking,8,42,running,meow_between_words,2,1,2,0,0,0
+output_no_thinking,8,42,running,multiple_word_suppression,3,2,3,0,0,0
+output_no_thinking,8,42,running,repeat_sentences,2,0,2,1,0,0
+output_no_thinking,8,42,running,uppercase_thinking,2,1,2,1,1,0
+output_no_thinking,8,42,running,word_suppression,3,2,3,0,0,0
 reasoning,1,42,complete,alternating_case,30,16,30,0,0,6
 reasoning,1,42,complete,baseline,30,17,0,,,1
 reasoning,1,42,complete,end_of_sentence,30,15,30,0,0,6
