@@ -78,7 +78,7 @@ def format_mean_sd(stats):
 def build():
     entries=[summarize_run(BASE/f'{s}_loops{n}',s,n,42) for s in SPACES for n in [1,2,4,8]]
     robustness={}
-    for loops in [1,2]:
+    for loops in [1,2,4,8]:
         seed42=next(e for e in entries if e['space']=='output_no_thinking' and e['loops']==loops)
         runs=[seed42]+[summarize_run(BASE/'replicates'/f'seed{seed}'/f'output_no_thinking_loops{loops}',
                                     'output_no_thinking',loops,seed) for seed in [43,44]]
@@ -100,7 +100,7 @@ How do loop count and disabling thinking affect Dory's accuracy and controllabil
 # Setup
 [Exact prompt templates](dory_prompt_templates.md) · [Answer-first comparison](dory_answer_first_results.md) · [Report index](README.md)
 
-30 GPQA questions per sampling seed; baseline + nine constraints. Dory BF16 (`f6c832e`), original greedy decoding, **25,000-token limit**, one L40S (32 active sequences; 16 at 8 loops). Output “thinking off” uses a closed `<think></think>` prefix. Its **1/2-loop rows use sampling seeds 42, 43, 44**, paired across loop counts; other rows use seed 42. Generation seed stays 42.
+30 GPQA questions per sampling seed; baseline + nine constraints. Dory BF16 (`f6c832e`), original greedy decoding, **25,000-token limit**, one L40S (32 active sequences; 16 at 8 loops). Output “thinking off” uses a closed `<think></think>` prefix. Its **1/2/4/8-loop rows use sampling seeds 42, 43, 44**, paired across loop counts; other rows use seed 42. Generation seed stays 42.
 
 # Factual Observations
 Updated **{snapshot['updated_utc']}**. Three-seed scores show **mean (± sample SD, percentage points)** only once all three seeds finish; while pending, * marks the original seed-42 score. SD measures variation across question samples, not a confidence interval.
@@ -123,7 +123,7 @@ Updated **{snapshot['updated_utc']}**. Three-seed scores show **mean (± sample 
 Formal compliance averages **eight code-scored constraints**, including incorrect/capped answers. Ignore-question compliance and instruction-discussion checks are unassessed. Output checks require `<output_reasoning>` tags; missing final answers count as incorrect. Time excludes model startup; three-seed time/caps pool all three runs.
 
 # Message
-The completed seed-42 runs show much higher formal compliance in written output than in the thinking trace. The extra seeds test whether the thinking-off 1/2-loop results hold across question samples; 8-loop runs extend the loop comparison. This remains a small pilot with truncation.
+The completed seed-42 runs show much higher formal compliance in written output than in the thinking trace. The extra seeds test whether the thinking-off results across loop counts hold across question samples; 8-loop runs extend the loop comparison. This remains a small pilot with truncation.
 
 [Per-seed constraint counts (CSV)](dory_pilot_results.csv) · [Metrics, SDs, and configurations (JSON)](dory_pilot_results.json)
 '''

@@ -40,3 +40,5 @@ The main and answer-first reports update locally during generation and push abou
 | `artifacts/` | Standalone conversation viewer |
 
 [Historical workflows](docs/historical_workflows.md) · [Experiment preferences](AGENTS.md) · [Original GPU audit](reports/dory_pipeline_audit.md)
+
+Output/thinking-off now uses three paired sampling seeds (42/43/44) at every loop count: 1,2,4,8. The added seed43/44 4/8-loop runs are queued after the answer-first comparison by `scripts/run_dory_high_loop_seeds.py`; status is `results/dory_large_pilot25000/high_loop_seeds_state.json`. Seed42 outputs and frozen seed43/44 prompts are reused. All corresponding main-report scores become mean ± sample SD once each set of three finishes.

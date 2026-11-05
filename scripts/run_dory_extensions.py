@@ -113,7 +113,7 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('action',choices=['prepare','run','worker'])
     p.add_argument('--space',choices=SPACES)
-    p.add_argument('--loops',type=int,choices=[1,2,8])
+    p.add_argument('--loops',type=int,choices=[1,2,4,8])
     p.add_argument('--sampling-seed',type=int,choices=SEEDS,default=42)
     a=p.parse_args();os.chdir(ROOT)
     if a.action=='prepare':prepare_inputs()
