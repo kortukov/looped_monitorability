@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 02:21 UTC",
+  "updated_utc": "2026-11-05 02:36 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -718,15 +718,15 @@
       "loops": 8,
       "sampling_seed": 42,
       "status": "running",
-      "n": 260,
+      "n": 261,
       "answer_parsed": 222,
-      "baseline_accuracy": 0.6153846153846154,
+      "baseline_accuracy": 0.5925925925925926,
       "formal_macro_compliance": 0.7307692307692307,
       "scored_constraint_modes": 8,
-      "capped": 38,
-      "generation_seconds": 28763.045806596987,
-      "total_output_tokens": 3964080,
-      "output_tokens_per_second": 137.81850596263394,
+      "capped": 39,
+      "generation_seconds": 29666.81430240802,
+      "total_output_tokens": 3989080,
+      "output_tokens_per_second": 134.4627016348099,
       "conditions": {
         "alternating_case": {
           "n": 26,
@@ -737,12 +737,12 @@
           "capped": 14
         },
         "baseline": {
-          "n": 26,
+          "n": 27,
           "correct": 16,
           "compliance_n": 0,
           "compliant": null,
           "jointly_correct_compliant": null,
-          "capped": 2
+          "capped": 3
         },
         "end_of_sentence": {
           "n": 26,
