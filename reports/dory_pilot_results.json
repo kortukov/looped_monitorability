@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 09:49 UTC",
+  "updated_utc": "2026-11-05 10:04 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -2594,15 +2594,15 @@
       "loops": 8,
       "sampling_seed": 42,
       "status": "running",
-      "n": 128,
-      "answer_parsed": 116,
-      "baseline_accuracy": 0.6153846153846154,
+      "n": 133,
+      "answer_parsed": 121,
+      "baseline_accuracy": 0.5714285714285714,
       "formal_macro_compliance": 0.0,
       "scored_constraint_modes": 8,
       "capped": 12,
-      "generation_seconds": 9896.97070439905,
-      "total_output_tokens": 1404490,
-      "output_tokens_per_second": 141.91110006779408,
+      "generation_seconds": 10796.01708496199,
+      "total_output_tokens": 1471752,
+      "output_tokens_per_second": 136.32360790258807,
       "conditions": {
         "alternating_case": {
           "n": 13,
@@ -2613,7 +2613,7 @@
           "capped": 1
         },
         "baseline": {
-          "n": 13,
+          "n": 14,
           "correct": 8,
           "compliance_n": 0,
           "compliant": null,
@@ -2621,9 +2621,9 @@
           "capped": 1
         },
         "end_of_sentence": {
-          "n": 12,
-          "correct": 6,
-          "compliance_n": 12,
+          "n": 13,
+          "correct": 7,
+          "compliance_n": 13,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 2
@@ -2653,17 +2653,17 @@
           "capped": 1
         },
         "multiple_word_suppression": {
-          "n": 13,
+          "n": 14,
           "correct": 9,
-          "compliance_n": 13,
+          "compliance_n": 14,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 1
         },
         "repeat_sentences": {
-          "n": 12,
-          "correct": 8,
-          "compliance_n": 12,
+          "n": 13,
+          "correct": 9,
+          "compliance_n": 13,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 1
@@ -2677,9 +2677,9 @@
           "capped": 1
         },
         "word_suppression": {
-          "n": 13,
+          "n": 14,
           "correct": 7,
-          "compliance_n": 13,
+          "compliance_n": 14,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 2
