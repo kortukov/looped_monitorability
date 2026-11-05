@@ -75,8 +75,8 @@ output_no_thinking,8,42,running,end_of_sentence,2,1,2,0,0,0
 output_no_thinking,8,42,running,ignore_question,2,1,0,,,0
 output_no_thinking,8,42,running,lowercase_thinking,2,1,2,0,0,0
 output_no_thinking,8,42,running,meow_between_words,2,1,2,0,0,0
-output_no_thinking,8,42,running,multiple_word_suppression,3,2,3,0,0,0
-output_no_thinking,8,42,running,repeat_sentences,2,0,2,1,0,0
+output_no_thinking,8,42,running,multiple_word_suppression,4,2,4,1,0,0
+output_no_thinking,8,42,running,repeat_sentences,3,0,3,2,0,0
 output_no_thinking,8,42,running,uppercase_thinking,2,1,2,1,1,0
 output_no_thinking,8,42,running,word_suppression,3,2,3,0,0,0
 reasoning,1,42,complete,alternating_case,30,16,30,0,0,6
