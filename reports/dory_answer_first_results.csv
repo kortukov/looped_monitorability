@@ -1,1 +1,11 @@
 thinking,loops,status,condition,n,correct,compliance_n,compliant,jointly_correct_compliant,capped
+thinking_off,1,running,alternating_case,11,0,11,0,0,0
+thinking_off,1,running,baseline,16,5,0,,,0
+thinking_off,1,running,end_of_sentence,14,0,14,0,0,0
+thinking_off,1,running,ignore_question,15,0,0,,,0
+thinking_off,1,running,lowercase_thinking,14,0,14,9,0,0
+thinking_off,1,running,meow_between_words,2,0,2,1,0,0
+thinking_off,1,running,multiple_word_suppression,14,1,14,0,0,0
+thinking_off,1,running,repeat_sentences,15,1,15,12,1,0
+thinking_off,1,running,uppercase_thinking,10,1,10,7,1,0
+thinking_off,1,running,word_suppression,14,0,14,4,0,0
