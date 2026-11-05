@@ -70,12 +70,12 @@ output_no_thinking,4,42,complete,repeat_sentences,30,14,30,9,4,1
 output_no_thinking,4,42,complete,uppercase_thinking,30,13,30,6,2,3
 output_no_thinking,4,42,complete,word_suppression,30,17,30,5,5,1
 output_no_thinking,8,42,running,alternating_case,29,15,29,1,1,1
-output_no_thinking,8,42,running,baseline,29,15,0,,,1
+output_no_thinking,8,42,running,baseline,30,15,0,,,1
 output_no_thinking,8,42,running,end_of_sentence,30,18,30,7,6,1
 output_no_thinking,8,42,running,ignore_question,27,14,0,,,4
 output_no_thinking,8,42,running,lowercase_thinking,30,15,30,12,6,0
-output_no_thinking,8,42,running,meow_between_words,28,17,28,8,6,1
-output_no_thinking,8,42,running,multiple_word_suppression,29,12,29,5,1,2
+output_no_thinking,8,42,running,meow_between_words,29,17,29,9,6,1
+output_no_thinking,8,42,running,multiple_word_suppression,30,12,30,5,1,3
 output_no_thinking,8,42,running,repeat_sentences,29,9,29,9,4,1
 output_no_thinking,8,42,running,uppercase_thinking,29,15,29,6,5,5
 output_no_thinking,8,42,running,word_suppression,30,18,30,8,4,1
