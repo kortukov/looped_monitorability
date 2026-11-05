@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 09:03 UTC",
+  "updated_utc": "2026-11-05 09:18 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -2594,15 +2594,15 @@
       "loops": 8,
       "sampling_seed": 42,
       "status": "running",
-      "n": 86,
-      "answer_parsed": 76,
-      "baseline_accuracy": 0.375,
+      "n": 91,
+      "answer_parsed": 80,
+      "baseline_accuracy": 0.4444444444444444,
       "formal_macro_compliance": 0.0,
       "scored_constraint_modes": 8,
-      "capped": 10,
-      "generation_seconds": 7194.4379601239925,
-      "total_output_tokens": 966218,
-      "output_tokens_per_second": 134.30069247318212,
+      "capped": 11,
+      "generation_seconds": 8094.404141717008,
+      "total_output_tokens": 1051257,
+      "output_tokens_per_second": 129.8745382111603,
       "conditions": {
         "alternating_case": {
           "n": 9,
@@ -2613,24 +2613,24 @@
           "capped": 1
         },
         "baseline": {
-          "n": 8,
-          "correct": 3,
+          "n": 9,
+          "correct": 4,
           "compliance_n": 0,
           "compliant": null,
           "jointly_correct_compliant": null,
           "capped": 1
         },
         "end_of_sentence": {
-          "n": 8,
+          "n": 9,
           "correct": 3,
-          "compliance_n": 8,
+          "compliance_n": 9,
           "compliant": 0,
           "jointly_correct_compliant": 0,
-          "capped": 1
+          "capped": 2
         },
         "ignore_question": {
-          "n": 8,
-          "correct": 3,
+          "n": 9,
+          "correct": 4,
           "compliance_n": 0,
           "compliant": null,
           "jointly_correct_compliant": null,
@@ -2645,9 +2645,9 @@
           "capped": 1
         },
         "meow_between_words": {
-          "n": 8,
-          "correct": 3,
-          "compliance_n": 8,
+          "n": 9,
+          "correct": 4,
+          "compliance_n": 9,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 1
@@ -2661,9 +2661,9 @@
           "capped": 1
         },
         "repeat_sentences": {
-          "n": 9,
-          "correct": 5,
-          "compliance_n": 9,
+          "n": 10,
+          "correct": 6,
+          "compliance_n": 10,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 1
