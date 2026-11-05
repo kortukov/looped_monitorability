@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 19:02 UTC",
+  "updated_utc": "2026-11-05 19:09 UTC",
   "entries": [
     {
       "space": "output_plain",
@@ -241,24 +241,24 @@
       "space": "output_plain",
       "loops": 2,
       "sampling_seed": 42,
-      "status": "running",
-      "n": 293,
-      "answer_parsed": 67,
+      "status": "complete",
+      "n": 300,
+      "answer_parsed": 68,
       "baseline_accuracy": 0.5666666666666667,
-      "formal_macro_compliance": 0.7471891534391535,
+      "formal_macro_compliance": 0.7416666666666667,
       "scored_constraint_modes": 8,
-      "capped": 58,
-      "generation_seconds": 7192.970877061016,
-      "total_output_tokens": 4263133,
-      "output_tokens_per_second": 592.680419935452,
+      "capped": 63,
+      "generation_seconds": 7594.76364175498,
+      "total_output_tokens": 4430209,
+      "output_tokens_per_second": 583.3241439724749,
       "conditions": {
         "alternating_case": {
-          "n": 27,
+          "n": 30,
           "correct": 0,
-          "compliance_n": 27,
+          "compliance_n": 30,
           "compliant": 1,
           "jointly_correct_compliant": 0,
-          "capped": 26
+          "capped": 29
         },
         "baseline": {
           "n": 30,
@@ -293,11 +293,11 @@
           "capped": 1
         },
         "meow_between_words": {
-          "n": 28,
-          "correct": 8,
-          "compliance_n": 28,
-          "compliant": 25,
-          "jointly_correct_compliant": 7,
+          "n": 30,
+          "correct": 9,
+          "compliance_n": 30,
+          "compliant": 27,
+          "jointly_correct_compliant": 8,
           "capped": 2
         },
         "multiple_word_suppression": {
@@ -317,12 +317,12 @@
           "capped": 3
         },
         "uppercase_thinking": {
-          "n": 28,
+          "n": 30,
           "correct": 2,
-          "compliance_n": 28,
+          "compliance_n": 30,
           "compliant": 20,
           "jointly_correct_compliant": 2,
-          "capped": 8
+          "capped": 10
         },
         "word_suppression": {
           "n": 30,
