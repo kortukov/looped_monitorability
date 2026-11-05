@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 22:18 UTC",
+  "updated_utc": "2026-11-05 22:31 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -5063,7 +5063,8 @@
         44
       ],
       "completed_seeds": [
-        42
+        42,
+        43
       ],
       "status": "pending",
       "runs": [
@@ -5306,24 +5307,24 @@
           "space": "output_no_thinking",
           "loops": 8,
           "sampling_seed": 43,
-          "status": "running",
-          "n": 297,
-          "answer_parsed": 288,
+          "status": "complete",
+          "n": 300,
+          "answer_parsed": 289,
           "baseline_accuracy": 0.5333333333333333,
-          "formal_macro_compliance": 0.1635262725779967,
+          "formal_macro_compliance": 0.1625,
           "scored_constraint_modes": 8,
-          "capped": 12,
-          "generation_seconds": 8059.542301241076,
-          "total_output_tokens": 1114675,
-          "output_tokens_per_second": 138.30500025148487,
+          "capped": 15,
+          "generation_seconds": 8864.61887010606,
+          "total_output_tokens": 1189675,
+          "output_tokens_per_second": 134.20486739840698,
           "conditions": {
             "alternating_case": {
-              "n": 28,
+              "n": 30,
               "correct": 13,
-              "compliance_n": 28,
+              "compliance_n": 30,
               "compliant": 2,
               "jointly_correct_compliant": 2,
-              "capped": 1
+              "capped": 3
             },
             "baseline": {
               "n": 30,
@@ -5358,12 +5359,12 @@
               "capped": 2
             },
             "meow_between_words": {
-              "n": 29,
+              "n": 30,
               "correct": 12,
-              "compliance_n": 29,
+              "compliance_n": 30,
               "compliant": 3,
               "jointly_correct_compliant": 2,
-              "capped": 3
+              "capped": 4
             },
             "multiple_word_suppression": {
               "n": 30,
