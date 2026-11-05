@@ -29,12 +29,12 @@ output,4,42,complete,multiple_word_suppression,30,17,30,26,17,3
 output,4,42,complete,repeat_sentences,30,16,30,8,4,4
 output,4,42,complete,uppercase_thinking,30,18,30,24,18,5
 output,4,42,complete,word_suppression,30,15,30,25,15,5
-output,8,42,running,alternating_case,24,6,24,4,2,13
+output,8,42,running,alternating_case,26,7,26,5,3,14
 output,8,42,running,baseline,26,16,0,,,2
 output,8,42,running,end_of_sentence,26,15,26,23,14,2
 output,8,42,running,ignore_question,26,14,0,,,4
 output,8,42,running,lowercase_thinking,26,14,26,23,14,3
-output,8,42,running,meow_between_words,25,14,25,20,13,4
+output,8,42,running,meow_between_words,26,15,26,21,14,4
 output,8,42,running,multiple_word_suppression,26,16,26,23,16,2
 output,8,42,running,repeat_sentences,26,14,26,10,6,3
 output,8,42,running,uppercase_thinking,26,16,26,23,15,2
