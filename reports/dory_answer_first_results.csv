@@ -9,6 +9,15 @@ thinking_on,1,complete,multiple_word_suppression,30,4,30,24,4,5
 thinking_on,1,complete,repeat_sentences,30,9,30,28,9,2
 thinking_on,1,complete,uppercase_thinking,30,3,30,20,3,10
 thinking_on,1,complete,word_suppression,30,5,30,25,5,5
+thinking_on,2,running,baseline,3,1,0,,,0
+thinking_on,2,running,end_of_sentence,2,0,2,2,0,0
+thinking_on,2,running,ignore_question,5,0,0,,,0
+thinking_on,2,running,lowercase_thinking,2,0,2,2,0,0
+thinking_on,2,running,meow_between_words,2,1,2,2,1,0
+thinking_on,2,running,multiple_word_suppression,1,0,1,1,0,0
+thinking_on,2,running,repeat_sentences,2,0,2,2,0,0
+thinking_on,2,running,uppercase_thinking,1,0,1,1,0,0
+thinking_on,2,running,word_suppression,3,1,3,3,1,0
 thinking_off,1,complete,alternating_case,30,1,30,0,0,10
 thinking_off,1,complete,baseline,30,11,0,,,0
 thinking_off,1,complete,end_of_sentence,30,0,30,0,0,6
