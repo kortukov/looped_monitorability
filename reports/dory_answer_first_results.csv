@@ -9,3 +9,13 @@ thinking_off,1,complete,multiple_word_suppression,30,1,30,1,0,7
 thinking_off,1,complete,repeat_sentences,30,3,30,25,3,1
 thinking_off,1,complete,uppercase_thinking,30,1,30,19,1,7
 thinking_off,1,complete,word_suppression,30,1,30,6,0,3
+thinking_off,2,running,alternating_case,12,2,12,0,0,0
+thinking_off,2,running,baseline,16,6,0,,,0
+thinking_off,2,running,end_of_sentence,13,0,13,0,0,0
+thinking_off,2,running,ignore_question,15,0,0,,,0
+thinking_off,2,running,lowercase_thinking,13,0,13,7,0,0
+thinking_off,2,running,meow_between_words,2,0,2,0,0,0
+thinking_off,2,running,multiple_word_suppression,12,1,12,1,0,0
+thinking_off,2,running,repeat_sentences,15,1,15,15,1,0
+thinking_off,2,running,uppercase_thinking,10,0,10,3,0,0
+thinking_off,2,running,word_suppression,13,3,13,6,2,0
