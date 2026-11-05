@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 07:18 UTC",
+  "updated_utc": "2026-11-05 07:33 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -2594,20 +2594,20 @@
       "loops": 8,
       "sampling_seed": 42,
       "status": "running",
-      "n": 15,
-      "answer_parsed": 15,
+      "n": 20,
+      "answer_parsed": 20,
       "baseline_accuracy": 0.5,
       "formal_macro_compliance": 0.0,
       "scored_constraint_modes": 8,
       "capped": 0,
-      "generation_seconds": 872.2649979030248,
-      "total_output_tokens": 53092,
-      "output_tokens_per_second": 60.86682387535465,
+      "generation_seconds": 1772.8204260399798,
+      "total_output_tokens": 71322,
+      "output_tokens_per_second": 40.23080902746299,
       "conditions": {
         "alternating_case": {
-          "n": 1,
-          "correct": 0,
-          "compliance_n": 1,
+          "n": 2,
+          "correct": 1,
+          "compliance_n": 2,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 0
@@ -2629,8 +2629,8 @@
           "capped": 0
         },
         "ignore_question": {
-          "n": 1,
-          "correct": 0,
+          "n": 2,
+          "correct": 1,
           "compliance_n": 0,
           "compliant": null,
           "jointly_correct_compliant": null,
@@ -2645,9 +2645,9 @@
           "capped": 0
         },
         "meow_between_words": {
-          "n": 1,
-          "correct": 0,
-          "compliance_n": 1,
+          "n": 2,
+          "correct": 1,
+          "compliance_n": 2,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 0
@@ -2661,17 +2661,17 @@
           "capped": 0
         },
         "repeat_sentences": {
-          "n": 1,
-          "correct": 0,
-          "compliance_n": 1,
+          "n": 2,
+          "correct": 1,
+          "compliance_n": 2,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 0
         },
         "uppercase_thinking": {
-          "n": 1,
-          "correct": 0,
-          "compliance_n": 1,
+          "n": 2,
+          "correct": 1,
+          "compliance_n": 2,
           "compliant": 0,
           "jointly_correct_compliant": 0,
           "capped": 0
