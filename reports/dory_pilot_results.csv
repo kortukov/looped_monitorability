@@ -174,7 +174,7 @@ output_no_thinking,8,43,running,baseline,9,6,0,,,0
 output_no_thinking,8,43,running,end_of_sentence,8,6,8,0,0,0
 output_no_thinking,8,43,running,ignore_question,8,6,0,,,0
 output_no_thinking,8,43,running,lowercase_thinking,8,6,8,2,2,0
-output_no_thinking,8,43,running,meow_between_words,6,5,6,1,1,0
+output_no_thinking,8,43,running,meow_between_words,7,6,7,1,1,0
 output_no_thinking,8,43,running,multiple_word_suppression,9,6,9,0,0,0
 output_no_thinking,8,43,running,repeat_sentences,9,7,9,1,1,0
 output_no_thinking,8,43,running,uppercase_thinking,8,6,8,0,0,0
