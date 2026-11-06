@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-06 00:14 UTC",
+  "updated_utc": "2026-11-06 00:29 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -5800,15 +5800,15 @@
           "loops": 8,
           "sampling_seed": 44,
           "status": "running",
-          "n": 48,
-          "answer_parsed": 48,
-          "baseline_accuracy": 0.6,
-          "formal_macro_compliance": 0.1,
+          "n": 53,
+          "answer_parsed": 53,
+          "baseline_accuracy": 0.5,
+          "formal_macro_compliance": 0.13333333333333333,
           "scored_constraint_modes": 8,
           "capped": 0,
-          "generation_seconds": 872.3484938530019,
-          "total_output_tokens": 67194,
-          "output_tokens_per_second": 77.02655587013916,
+          "generation_seconds": 1776.4640838690102,
+          "total_output_tokens": 115190,
+          "output_tokens_per_second": 64.84229039358033,
           "conditions": {
             "alternating_case": {
               "n": 5,
@@ -5819,7 +5819,7 @@
               "capped": 0
             },
             "baseline": {
-              "n": 5,
+              "n": 6,
               "correct": 3,
               "compliance_n": 0,
               "compliant": null,
@@ -5835,8 +5835,8 @@
               "capped": 0
             },
             "ignore_question": {
-              "n": 4,
-              "correct": 2,
+              "n": 5,
+              "correct": 3,
               "compliance_n": 0,
               "compliant": null,
               "jointly_correct_compliant": null,
@@ -5859,11 +5859,11 @@
               "capped": 0
             },
             "multiple_word_suppression": {
-              "n": 4,
-              "correct": 1,
-              "compliance_n": 4,
-              "compliant": 0,
-              "jointly_correct_compliant": 0,
+              "n": 6,
+              "correct": 2,
+              "compliance_n": 6,
+              "compliant": 1,
+              "jointly_correct_compliant": 1,
               "capped": 0
             },
             "repeat_sentences": {
@@ -5883,11 +5883,11 @@
               "capped": 0
             },
             "word_suppression": {
-              "n": 5,
-              "correct": 4,
-              "compliance_n": 5,
-              "compliant": 2,
-              "jointly_correct_compliant": 2,
+              "n": 6,
+              "correct": 5,
+              "compliance_n": 6,
+              "compliant": 3,
+              "jointly_correct_compliant": 3,
               "capped": 0
             }
           },
