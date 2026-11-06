@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-06 03:14 UTC",
+  "updated_utc": "2026-11-06 03:21 UTC",
   "dataset": "GPQA",
   "n_questions_per_seed": 30,
   "default_sampling_seed": 42,
@@ -5320,9 +5320,10 @@
       ],
       "completed_seeds": [
         42,
-        43
+        43,
+        44
       ],
-      "status": "pending",
+      "status": "complete",
       "runs": [
         {
           "space": "output_no_thinking",
@@ -5799,16 +5800,16 @@
           "space": "output_no_thinking",
           "loops": 8,
           "sampling_seed": 44,
-          "status": "running",
-          "n": 299,
+          "status": "complete",
+          "n": 300,
           "answer_parsed": 295,
           "baseline_accuracy": 0.6,
-          "formal_macro_compliance": 0.2636494252873563,
+          "formal_macro_compliance": 0.2625,
           "scored_constraint_modes": 8,
-          "capped": 15,
-          "generation_seconds": 11689.563752633054,
-          "total_output_tokens": 1697445,
-          "output_tokens_per_second": 145.21029491948778,
+          "capped": 16,
+          "generation_seconds": 12059.596024217084,
+          "total_output_tokens": 1722445,
+          "output_tokens_per_second": 142.827752815362,
           "conditions": {
             "alternating_case": {
               "n": 30,
@@ -5851,12 +5852,12 @@
               "capped": 1
             },
             "meow_between_words": {
-              "n": 29,
+              "n": 30,
               "correct": 16,
-              "compliance_n": 29,
+              "compliance_n": 30,
               "compliant": 8,
               "jointly_correct_compliant": 6,
-              "capped": 2
+              "capped": 3
             },
             "multiple_word_suppression": {
               "n": 30,
@@ -6031,7 +6032,114 @@
             "upstream_commit": "5d78aeffe0152ba087c2d31cd07712d029c64785"
           }
         }
-      ]
+      ],
+      "baseline_accuracy": {
+        "mean": 0.5444444444444444,
+        "sample_std": 0.05091750772173154
+      },
+      "formal_macro_compliance": {
+        "mean": 0.22083333333333333,
+        "sample_std": 0.05204164998665332
+      },
+      "conditions": {
+        "alternating_case": {
+          "accuracy": {
+            "mean": 0.4666666666666667,
+            "sample_std": 0.033333333333333326
+          },
+          "compliance": {
+            "mean": 0.07777777777777778,
+            "sample_std": 0.05091750772173156
+          }
+        },
+        "baseline": {
+          "accuracy": {
+            "mean": 0.5444444444444444,
+            "sample_std": 0.05091750772173154
+          },
+          "compliance": null
+        },
+        "end_of_sentence": {
+          "accuracy": {
+            "mean": 0.5666666666666667,
+            "sample_std": 0.05773502691896256
+          },
+          "compliance": {
+            "mean": 0.24444444444444444,
+            "sample_std": 0.05091750772173154
+          }
+        },
+        "ignore_question": {
+          "accuracy": {
+            "mean": 0.5888888888888889,
+            "sample_std": 0.11706281947614151
+          },
+          "compliance": null
+        },
+        "lowercase_thinking": {
+          "accuracy": {
+            "mean": 0.5555555555555556,
+            "sample_std": 0.05091750772173154
+          },
+          "compliance": {
+            "mean": 0.3666666666666667,
+            "sample_std": 0.057735026918962595
+          }
+        },
+        "meow_between_words": {
+          "accuracy": {
+            "mean": 0.5,
+            "sample_std": 0.08819171036881966
+          },
+          "compliance": {
+            "mean": 0.2222222222222222,
+            "sample_std": 0.10715167512214394
+          }
+        },
+        "multiple_word_suppression": {
+          "accuracy": {
+            "mean": 0.43333333333333335,
+            "sample_std": 0.033333333333333326
+          },
+          "compliance": {
+            "mean": 0.13333333333333333,
+            "sample_std": 0.033333333333333326
+          }
+        },
+        "repeat_sentences": {
+          "accuracy": {
+            "mean": 0.5222222222222221,
+            "sample_std": 0.19531550923607716
+          },
+          "compliance": {
+            "mean": 0.3,
+            "sample_std": 0.033333333333333326
+          }
+        },
+        "uppercase_thinking": {
+          "accuracy": {
+            "mean": 0.5111111111111111,
+            "sample_std": 0.01924500897298752
+          },
+          "compliance": {
+            "mean": 0.16666666666666669,
+            "sample_std": 0.08819171036881969
+          }
+        },
+        "word_suppression": {
+          "accuracy": {
+            "mean": 0.5444444444444444,
+            "sample_std": 0.12619796324000604
+          },
+          "compliance": {
+            "mean": 0.25555555555555554,
+            "sample_std": 0.05091750772173154
+          }
+        }
+      },
+      "capped": 54,
+      "generation_seconds": 32161.616495576105,
+      "output_tokens_per_second": 138.9821000015606
     }
   },
   "sd_definition": "sample SD across three question-sampling seeds (ddof=1); not a confidence interval"
